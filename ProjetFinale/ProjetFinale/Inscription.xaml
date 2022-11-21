@@ -1,0 +1,80 @@
+﻿<Page
+    x:Class="ProjetFinale.Inscription"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProjetFinale"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <ScrollViewer>
+        <StackPanel>
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock x:Name="TbInscription" Text="Inscription" FontSize="50" FontFamily="Comic Sans MS" Foreground="green" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="3" Padding="0,30,0,0"/>
+
+
+                <StackPanel Grid.Column="1" Grid.Row="1" Margin="0,50,0,0">
+                    <TextBlock Text="Prenom : " FontSize="20" Foreground="White" Margin="0 10 0 0"/>
+                    <TextBox x:Name="Prenom" FontSize="20" Margin="0 10 0 0"/>
+                    <TextBlock x:Name="errPrenom"  Text="Entrez votre Prenom" Foreground="Red"  Visibility="Collapsed" FontSize="15"/>
+                </StackPanel >
+
+                <StackPanel Grid.Column="1" Grid.Row="2">
+                    <TextBlock Text="Nom : " FontSize="20" Foreground="White" Margin="0 10 0 0"/>
+                    <TextBox x:Name="Nom" FontSize="20" Margin="0 10 0 0"/>
+                    <TextBlock x:Name="errNom"  Text="Entrez votre Nom" Foreground="Red"  Visibility="Collapsed" FontSize="15"/>
+                </StackPanel >
+                
+                <StackPanel Grid.Column="1" Grid.Row="3">
+                    <TextBlock Text="Email : " FontSize="20" Foreground="White" Margin="0 10 0 0"/>
+                    <TextBox x:Name="Email" FontSize="20" Margin="0 10 0 0"/>
+                    <TextBlock x:Name="errEmail"  Text="Entrez votre Email" Foreground="Red"  Visibility="Collapsed" FontSize="15"/>
+                </StackPanel >
+
+                <StackPanel Grid.Column="1" Grid.Row="4">
+                    <TextBlock Text="Num : " FontSize="20" Foreground="White" Margin="0 10 0 0"/>
+                    <TextBox x:Name="Num" FontSize="20" Margin="0 10 0 0"/>
+                    <TextBlock x:Name="errNum"  Text="Entrez votre numéro de téléphone" Foreground="Red"  Visibility="Collapsed" FontSize="15"/>
+                </StackPanel >
+
+                <StackPanel Grid.Column="1" Grid.Row="5">
+                    <TextBlock Text="Mot de passe : " FontSize="20" Foreground="White" Margin="0 10 0 0"/>
+                    <TextBox x:Name="Mdp" FontSize="20" Margin="0 10 0 0"/>
+                    <TextBlock x:Name="errMdp"  Text="Entrez le mot de passe" Foreground="red"  Visibility="Collapsed" FontSize="15"/>
+                </StackPanel >
+
+                <StackPanel Grid.Column="1" Grid.Row="6">
+                    <TextBlock Text="Adresse : " FontSize="20" Foreground="White" Margin="0 10 0 0"/>
+                    <TextBox x:Name="Adresse" FontSize="20" Margin="0 10 0 0"/>
+                    <TextBlock x:Name="errAdresse"  Text="Entrez votre Adresse" Foreground="Red"  Visibility="Collapsed" FontSize="15"/>
+                </StackPanel >
+
+                <StackPanel Grid.Column="1" Grid.Row="7">
+                    <Button x:Name="button1" Content="Connexion" Click="button1_Click_1" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" FontSize="20"  Margin="0 20 0 0"/>
+                </StackPanel>
+
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
+
+    
+    // prenom,nom,num,mail,add,type compte (adminmapassager,conducteur)
