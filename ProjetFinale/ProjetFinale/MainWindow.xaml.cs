@@ -31,11 +31,12 @@ namespace ProjetFinale
         {
             this.InitializeComponent();
         }
+  
+  
 
-    private void button1_Click(object sender, RoutedEventArgs e)
-    {
-
-       reset();
+        private void button1_Click_1(object sender, RoutedEventArgs e)
+        {
+            reset();
 
        if (Email.Text.Trim() == "")
        {
@@ -51,17 +52,16 @@ namespace ProjetFinale
        }
 
 
-       if (verif == true)
-       {
-           //connection route menu
-       }
-    }
-
-    private void reset()
-    {
-       errMdp.Visibility = Visibility.Collapsed;
-       errEmail.Visibility = Visibility.Collapsed;
-    }
-
+            if (verif == true)
+            {
+                //connection route menu
+            }
+        }
+        
+        private void reset()
+        {
+            errMdp.Visibility = Visibility.Collapsed;
+            errEmail.Visibility = Visibility.Collapsed;
+        }
     }
 }
