@@ -30,38 +30,39 @@ namespace ProjetFinale
         public MainWindow()
         {
             this.InitializeComponent();
+            mainFrame.Navigate(typeof(Menu));
         }
   
   
 
-        private void button1_Click_1(object sender, RoutedEventArgs e)
-        {
-            reset();
+       // private void button1_Click_1(object sender, RoutedEventArgs e)
+       // {
+       //     reset();
 
-       if (Email.Text.Trim() == "")
-       {
-           verif = false;
-           errEmail.Visibility = Visibility.Visible;
-       }
-
-
-       if (Mdp.Text.Trim() == "")
-       {
-           verif = false;
-           errMdp.Visibility = Visibility.Visible;
-       }
+       //if (Email.Text.Trim() == "")
+       //{
+       //    verif = false;
+       //    errEmail.Visibility = Visibility.Visible;
+       //}
 
 
-            if (verif == true)
-            {
-                //connection route menu
-            }
-        }
+       //if (Mdp.Text.Trim() == "")
+       //{
+       //    verif = false;
+       //    errMdp.Visibility = Visibility.Visible;
+       //}
+
+
+       //     if (verif == true)
+       //     {
+       //         //connection route menu
+       //     }
+       // }
         
-        private void reset()
-        {
-            errMdp.Visibility = Visibility.Collapsed;
-            errEmail.Visibility = Visibility.Collapsed;
-        }
+       // private void reset()
+       // {
+       //     errMdp.Visibility = Visibility.Collapsed;
+       //     errEmail.Visibility = Visibility.Collapsed;
+       // }
     }
 }
