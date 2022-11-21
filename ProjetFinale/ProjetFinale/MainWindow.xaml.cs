@@ -25,12 +25,12 @@ namespace ProjetFinale
     public sealed partial class MainWindow : Window
     {
 
-        bool verif = true;
+        //bool verif = true;
 
         public MainWindow()
         {
             this.InitializeComponent();
-            mainFrame.Navigate(typeof(Menu));
+            this.mainFrame.Navigate(typeof(Menu));
         }
   
   
