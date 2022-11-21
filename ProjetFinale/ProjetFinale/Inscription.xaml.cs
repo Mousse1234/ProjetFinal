@@ -23,9 +23,71 @@ namespace ProjetFinale
     /// </summary>
     public sealed partial class Inscription : Page
     {
+        bool verif = true;
         public Inscription()
         {
             this.InitializeComponent();
+        }
+
+
+     
+
+       
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            reset();
+
+            if (Nom1.Text.Trim() == "")
+            {
+                verif = false;
+                errNom1.Visibility = Visibility.Visible;
+            }
+
+            if (Email1.Text.Trim() == "")
+            {
+                verif = false;
+                errEmail1.Visibility = Visibility.Visible;
+            }
+
+            if (Prenom1.Text.Trim() == "")
+            {
+                verif = false;
+                errPrenom1.Visibility = Visibility.Visible;
+            }
+
+            if (Num1.Text.Trim() == "")
+            {
+                verif = false;
+                errNum1.Visibility = Visibility.Visible;
+            }
+
+            if (Mdp1.Text.Trim() == "")
+            {
+                verif = false;
+                errMdp1.Visibility = Visibility.Visible;
+            }
+
+            if (Adresse1.Text.Trim() == "")
+            {
+                verif = false;
+                errAdresse1.Visibility = Visibility.Visible;
+            }
+
+            if (verif == true)
+            {
+                //connection route menu
+            }
+        }
+
+        private void reset()
+        {
+            errNom1.Visibility = Visibility.Collapsed;
+            errEmail1.Visibility = Visibility.Collapsed;
+            errPrenom1.Visibility = Visibility.Collapsed;
+            errNum1.Visibility = Visibility.Collapsed;
+            errAdresse1.Visibility = Visibility.Collapsed;
+            errMdp1.Visibility = Visibility.Collapsed;
         }
     }
 }

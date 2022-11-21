@@ -25,13 +25,13 @@ namespace ProjetFinale
     public sealed partial class MainWindow : Window
     {
 
-        bool verif = true;
-
      public MainWindow()
         {
             this.InitializeComponent();
+            this.MainFrame.Navigate(typeof(Inscription));
+
         }
 
-      
+
     } 
 }

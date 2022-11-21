@@ -23,9 +23,38 @@ namespace ProjetFinale
     /// </summary>
     public sealed partial class Connexion : Page
     {
+
+        bool verif = true;
         public Connexion()
         {
             this.InitializeComponent();
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            reset();
+
+            if (Email.Text.Trim() == "")
+            {
+                verif = false;
+                errEmail.Visibility = Visibility.Visible;
+            }
+
+            if (Mdp.Text.Trim() == "")
+            {
+                verif = false;
+                errMdp.Visibility = Visibility.Visible;
+            }
+
+            if (verif == true)
+            {
+                //connection route menu
+            }
+        }
+        private void reset()
+        {
+            errEmail.Visibility = Visibility.Collapsed;
+            errMdp.Visibility = Visibility.Collapsed;
         }
     }
 }
