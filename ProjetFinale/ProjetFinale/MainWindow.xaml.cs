@@ -27,41 +27,11 @@ namespace ProjetFinale
 
         bool verif = true;
 
-        public MainWindow()
+     public MainWindow()
         {
             this.InitializeComponent();
         }
-  
-  
 
-        private void button1_Click_1(object sender, RoutedEventArgs e)
-        {
-            reset();
-
-       if (Email.Text.Trim() == "")
-       {
-           verif = false;
-           errEmail.Visibility = Visibility.Visible;
-       }
-
-
-       if (Mdp.Text.Trim() == "")
-       {
-           verif = false;
-           errMdp.Visibility = Visibility.Visible;
-       }
-
-
-            if (verif == true)
-            {
-                //connection route menu
-            }
-        }
-        
-        private void reset()
-        {
-            errMdp.Visibility = Visibility.Collapsed;
-            errEmail.Visibility = Visibility.Collapsed;
-        }
-    }
+      
+    } 
 }
