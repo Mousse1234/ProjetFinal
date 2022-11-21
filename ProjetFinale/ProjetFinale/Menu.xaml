@@ -8,7 +8,31 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+  <Grid>
+    <NavigationView PaneDisplayMode="Left" PaneTitle="rUBERt" IsSettingsVisible="False" IsBackButtonVisible="Collapsed">
 
-    </Grid>
+      <NavigationView.AutoSuggestBox>
+        <AutoSuggestBox x:Name="iRecherche" QueryIcon="Find" QuerySubmitted="iRecherche_QuerySubmitted"/>
+      </NavigationView.AutoSuggestBox>
+      <NavigationView.MenuItems>
+        <NavigationViewItemSeparator/>
+        <NavigationViewItemHeader Content="Admin"/>
+        <NavigationViewItem Content="Villes" Icon="Add"/>
+        <NavigationViewItem Content="Trajets en cours" Icon="AllApps"/>
+        <NavigationViewItem Content="Trajets terminer" Icon="Account"/>
+        <NavigationViewItem Content="Coûts" Icon="Accept"/>
+
+        <NavigationViewItemSeparator/>
+        <NavigationViewItemHeader Content="Conducteur"/>
+        <NavigationViewItem Content="Trajets" Icon="Add"/>
+        <NavigationViewItem Content="Historique" Icon="AllApps"/>
+        <NavigationViewItem Content="Futur trajets" Icon="Bookmarks"/>
+
+        <NavigationViewItemSeparator/>
+        <NavigationViewItemHeader Content="Passager"/>
+        <NavigationViewItem x:Name="iConnexion" Content="Connexion" Icon="Switch"/>
+      </NavigationView.MenuItems>
+
+    </NavigationView>
+  </Grid>
 </Page>

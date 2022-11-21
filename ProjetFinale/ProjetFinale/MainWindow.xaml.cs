@@ -31,36 +31,37 @@ namespace ProjetFinale
         {
             this.InitializeComponent();
         }
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
 
-            reset();
+    private void button1_Click(object sender, RoutedEventArgs e)
+    {
 
-            if (Email.Text.Trim() == "")
-            {
-                verif = false;
-                errEmail.Visibility = Visibility.Visible;
-            }
+       reset();
 
-
-            if (Mdp.Text.Trim() == "")
-            {
-                verif = false;
-                errMdp.Visibility = Visibility.Visible;
-            }
+       if (Email.Text.Trim() == "")
+       {
+           verif = false;
+           errEmail.Visibility = Visibility.Visible;
+       }
 
 
-            if (verif == true)
-            {
-                //connection route menu
-            }
-        }
+       if (Mdp.Text.Trim() == "")
+       {
+           verif = false;
+           errMdp.Visibility = Visibility.Visible;
+       }
 
-        private void reset()
-        {
-            errMdp.Visibility = Visibility.Collapsed;
-            errEmail.Visibility = Visibility.Collapsed;
-        }
+
+       if (verif == true)
+       {
+           //connection route menu
+       }
+    }
+
+    private void reset()
+    {
+       errMdp.Visibility = Visibility.Collapsed;
+       errEmail.Visibility = Visibility.Collapsed;
+    }
 
     }
 }

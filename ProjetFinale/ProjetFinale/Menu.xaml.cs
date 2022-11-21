@@ -27,5 +27,15 @@ namespace ProjetFinale
         {
             this.InitializeComponent();
         }
+        private void iRecherche_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+        {
+            ContentDialog dialog = new ContentDialog();
+            dialog.Title = "Test";
+            dialog.CloseButtonText = "OK";
+            dialog.Content = iRecherche.Text;
+
+            dialog.ShowAsync();
+
+        }
     }
 }
