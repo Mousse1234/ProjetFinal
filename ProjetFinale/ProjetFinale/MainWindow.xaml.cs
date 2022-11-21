@@ -5,6 +5,7 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using Microsoft.UI.Xaml.Shapes;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,9 +24,43 @@ namespace ProjetFinale
     /// </summary>
     public sealed partial class MainWindow : Window
     {
+
+        bool verif = true;
+
         public MainWindow()
         {
             this.InitializeComponent();
         }
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+
+            reset();
+
+            if (Email.Text.Trim() == "")
+            {
+                verif = false;
+                errEmail.Visibility = Visibility.Visible;
+            }
+
+
+            if (Mdp.Text.Trim() == "")
+            {
+                verif = false;
+                errMdp.Visibility = Visibility.Visible;
+            }
+
+
+            if (verif == true)
+            {
+                //connection route menu
+            }
+        }
+
+        private void reset()
+        {
+            errMdp.Visibility = Visibility.Collapsed;
+            errEmail.Visibility = Visibility.Collapsed;
+        }
+
     }
 }

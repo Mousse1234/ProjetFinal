@@ -30,36 +30,16 @@
     <TextBlock x:Name="TbTitre2" Text="Ajouter un livre" FontSize="50" FontFamily="Comic Sans MS" Foreground="green" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="3"/>
 
     <StackPanel Grid.Column="1" Grid.Row="1" Margin="0,100,0,0">
-        <TextBlock Text="Titre : " FontSize="20" Foreground="White" Margin="0 10 0 0"/>
-        <TextBox x:Name="Titre" FontSize="20" Margin="0 10 0 0"/>
-        <TextBlock x:Name="errTitre"  Text="Entrez le titre" Foreground="Red"  Visibility="Collapsed" FontSize="15"/>
+        <TextBlock Text="Email : " FontSize="20" Foreground="White" Margin="0 10 0 0"/>
+        <TextBox x:Name="Email" FontSize="20" Margin="0 10 0 0"/>
+        <TextBlock x:Name="errEmail"  Text="Entrez votre Email" Foreground="Red"  Visibility="Collapsed" FontSize="15"/>
     </StackPanel >
 
     <StackPanel Grid.Column="1" Grid.Row="2">
-        <TextBlock Text="Auteur : " FontSize="20" Foreground="White" Margin="0 10 0 0"/>
-        <TextBox x:Name="Auteur" FontSize="20" Margin="0 10 0 0"/>
-        <TextBlock x:Name="errAuteur"  Text="Entrez l'auteur" Foreground="red"  Visibility="Collapsed" FontSize="15"/>
+        <TextBlock Text="Mot de passe : " FontSize="20" Foreground="White" Margin="0 10 0 0"/>
+        <TextBox x:Name="Mdp" FontSize="20" Margin="0 10 0 0"/>
+        <TextBlock x:Name="errMdp"  Text="Entrez le mot de passe" Foreground="red"  Visibility="Collapsed" FontSize="15"/>
     </StackPanel >
-
-    <StackPanel Grid.Column="1" Grid.Row="3">
-        <TextBlock Text="Éditeur : " FontSize="20" Foreground="White" Margin="0 10 0 0"/>
-        <TextBox x:Name="Editeur" FontSize="20" Margin="0 10 0 0"/>
-        <TextBlock x:Name="errEditeur"  Text="Entrez l'éditeur" Foreground="red"  Visibility="Collapsed" FontSize="15"/>
-    </StackPanel >
-
-    <StackPanel Grid.Column="1" Grid.Row="4">
-        <TextBlock Text="Image : " FontSize="20" Foreground="White" Margin="0 10 0 0"/>
-        <TextBox x:Name="Image" FontSize="20" Margin="0 10 0 0"/>
-        <TextBlock x:Name="errImage"  Text="Entrez l'url de l'image" Foreground="red"  Visibility="Collapsed" FontSize="15"/>
-    </StackPanel >
-    <Button x:Name="button1" Content="Ajouter" Click="button1_Click" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" FontSize="20"  Margin="0 20 0 0"/>
-    <TextBlock x:Name="TbValidation" FontSize="18"  Margin="0 20 0 0"/>
-
-
-
-
-
-
 
     </Grid>
     </StackPanel>
