@@ -37,5 +37,46 @@ namespace ProjetFinale
             dialog.ShowAsync();
 
         }
+
+
+        private void iVilles_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.mainFrame.Navigate(typeof(villes));
+        }
+
+        private void iEncours_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.mainFrame.Navigate(typeof(Encours));
+        }
+
+        private void iTerminer_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.mainFrame.Navigate(typeof(Terminer));
+        }
+
+        private void iCouts_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.mainFrame.Navigate(typeof(couts));
+        }
+
+        private void iTrajets_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.mainFrame.Navigate(typeof(Trajets));
+        }
+
+        private void iHistorique_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.mainFrame.Navigate(typeof(BlankPage1));
+        }
+
+        private void iFutur_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.mainFrame.Navigate(typeof(Futur));
+        }
+
+        private void iConnexion_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.mainFrame.Navigate(typeof(Connect));
+        }
     }
 }

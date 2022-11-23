@@ -17,22 +17,24 @@
       <NavigationView.MenuItems>
         <NavigationViewItemSeparator/>
         <NavigationViewItemHeader Content="Admin"/>
-        <NavigationViewItem Content="Villes" Icon="Add"/>
-        <NavigationViewItem Content="Trajets en cours" Icon="AllApps"/>
-        <NavigationViewItem Content="Trajets terminer" Icon="Account"/>
-        <NavigationViewItem Content="Coûts" Icon="Accept"/>
+        <NavigationViewItem x:Name="iVilles" Content="Villes" Icon="Add" Tapped="iVilles_Tapped"/>
+        <NavigationViewItem x:Name="iEncours" Content="Trajets en cours" Icon="AllApps" Tapped="iEncours_Tapped"/>
+        <NavigationViewItem x:Name="iTerminer" Content="Trajets terminer" Icon="Account" Tapped="iTerminer_Tapped"/>
+        <NavigationViewItem x:Name="iCouts" Content="Coûts" Icon="Accept" Tapped="iCouts_Tapped"/>
 
         <NavigationViewItemSeparator/>
         <NavigationViewItemHeader Content="Conducteur"/>
-        <NavigationViewItem Content="Trajets" Icon="Add"/>
-        <NavigationViewItem Content="Historique" Icon="AllApps"/>
-        <NavigationViewItem Content="Futur trajets" Icon="Bookmarks"/>
+        <NavigationViewItem x:Name="iTrajets" Content="Trajets" Icon="Add" Tapped="iTrajets_Tapped"/>
+        <NavigationViewItem x:Name="iHistorique" Content="Historique" Icon="AllApps" Tapped="iHistorique_Tapped"/>
+        <NavigationViewItem x:Name="iFutur" Content="Futur trajets" Icon="Bookmarks" Tapped="iFutur_Tapped"/>
 
         <NavigationViewItemSeparator/>
         <NavigationViewItemHeader Content="Passager"/>
-        <NavigationViewItem x:Name="iConnexion" Content="Connexion" Icon="Switch"/>
+        <NavigationViewItem x:Name="iConnexion" Content="Connexion" Icon="Switch" Tapped="iConnexion_Tapped"/>
       </NavigationView.MenuItems>
 
     </NavigationView>
-  </Grid>
+
+        <Frame x:Name="mainFrame"/>
+    </Grid>
 </Page>
