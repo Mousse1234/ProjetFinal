@@ -7,19 +7,28 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid>
+    <StackPanel>
+        <CommandBar IsOpen="False" DefaultLabelPosition="Right">
+            <AppBarButton x:Name="inscription" Icon="AddFriend" Label="inscription" Click="inscription_Click"/>
+            <AppBarButton x:Name="connexion" Icon="Account" Label="connexion" Click="connexion_Click"/>
+        </CommandBar>
+
+
         <NavigationView PaneDisplayMode="Left" PaneTitle="rUBERt" IsSettingsVisible="False" IsBackButtonVisible="Collapsed" SelectionChanged="NavigationView_SelectionChanged" Foreground="white"  Background="Black">
 
             <NavigationView.Header>
                 <TextBlock x:Name="tblHeader"/>
             </NavigationView.Header>
             
+            <NavigationView.PaneHeader>
+                <Button Content="_______"/>
+            </NavigationView.PaneHeader>
+            
             <NavigationView.AutoSuggestBox>
                 <AutoSuggestBox x:Name="iRecherche" QueryIcon="Find" QuerySubmitted="iRecherche_QuerySubmitted" Foreground="white"/>
             </NavigationView.AutoSuggestBox>
-            
+
             <NavigationView.MenuItems>
-                
                 <NavigationViewItemSeparator/>
 
                 <NavigationViewItemHeader Content="Admin" Foreground="white"/>
@@ -41,10 +50,12 @@
                 <NavigationViewItem x:Name="iConnexion" Content="Connexion" Icon="Switch" Foreground="white"/>
             </NavigationView.MenuItems>
 
+            
+
                 
                 <Frame x:Name="mainFrame"/>
         </NavigationView>
 
         
-    </Grid>
+    </StackPanel>
 </Window>

@@ -58,5 +58,15 @@ namespace ProjetFinale
                     break;
             }
         }
+
+        private void inscription_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Navigate(typeof(Inscription));
+        }
+
+        private void connexion_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Navigate(typeof(Connexion));
+        }
     }
 }
