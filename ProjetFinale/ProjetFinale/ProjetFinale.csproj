@@ -13,13 +13,12 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="BlankPage1.xaml" />
-    <None Remove="Connect.xaml" />
     <None Remove="Connexion.xaml" />
     <None Remove="couts.xaml" />
     <None Remove="Encours.xaml" />
     <None Remove="Futur.xaml" />
     <None Remove="Inscription.xaml" />
-    <None Remove="Menu.xaml" />
+    <None Remove="Login.xaml" />
     <None Remove="Terminer.xaml" />
     <None Remove="Trajets.xaml" />
     <None Remove="villes.xaml" />
@@ -50,7 +49,7 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Connect.xaml">
+    <Page Update="Login.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
@@ -96,11 +95,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Connexion.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="Menu.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
