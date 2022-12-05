@@ -8,32 +8,43 @@
     mc:Ignorable="d">
 
     <Grid>
-        <NavigationView PaneDisplayMode="Left" PaneTitle="rUBERt" IsSettingsVisible="False" IsBackButtonVisible="Collapsed">
+        <NavigationView PaneDisplayMode="Left" PaneTitle="rUBERt" IsSettingsVisible="False" IsBackButtonVisible="Collapsed" SelectionChanged="NavigationView_SelectionChanged" Foreground="white"  Background="Black">
 
+            <NavigationView.Header>
+                <TextBlock x:Name="tblHeader"/>
+            </NavigationView.Header>
+            
             <NavigationView.AutoSuggestBox>
-                <AutoSuggestBox x:Name="iRecherche" QueryIcon="Find" QuerySubmitted="iRecherche_QuerySubmitted"/>
+                <AutoSuggestBox x:Name="iRecherche" QueryIcon="Find" QuerySubmitted="iRecherche_QuerySubmitted" Foreground="white"/>
             </NavigationView.AutoSuggestBox>
+            
             <NavigationView.MenuItems>
+                
                 <NavigationViewItemSeparator/>
-                <NavigationViewItemHeader Content="Admin"/>
-                <NavigationViewItem x:Name="iVilles" Content="Villes" Icon="Add" Tapped="iVilles_Tapped"/>
-                <NavigationViewItem x:Name="iEncours" Content="Trajets en cours" Icon="AllApps" Tapped="iEncours_Tapped"/>
-                <NavigationViewItem x:Name="iTerminer" Content="Trajets terminer" Icon="Account" Tapped="iTerminer_Tapped"/>
-                <NavigationViewItem x:Name="iCouts" Content="Coûts" Icon="Accept" Tapped="iCouts_Tapped"/>
+
+                <NavigationViewItemHeader Content="Admin" Foreground="white"/>
+                <NavigationViewItem x:Name="iVilles" Content="Villes" Icon="Add" Foreground="white"/>
+                <NavigationViewItem x:Name="iEncours" Content="Trajets en cours" Icon="AllApps" Foreground="white"/>
+                <NavigationViewItem x:Name="iTerminer" Content="Trajets terminer" Icon="Account" Foreground="white"/>
+                <NavigationViewItem x:Name="iCouts" Content="Coûts" Icon="Accept" Foreground="white"/>
 
                 <NavigationViewItemSeparator/>
-                <NavigationViewItemHeader Content="Conducteur"/>
-                <NavigationViewItem x:Name="iTrajets" Content="Trajets" Icon="Add" Tapped="iTrajets_Tapped"/>
-                <NavigationViewItem x:Name="iHistorique" Content="Historique" Icon="AllApps" Tapped="iHistorique_Tapped"/>
-                <NavigationViewItem x:Name="iFutur" Content="Futur trajets" Icon="Bookmarks" Tapped="iFutur_Tapped"/>
+
+                <NavigationViewItemHeader Content="Conducteur" Foreground="white"/>
+                <NavigationViewItem x:Name="iTrajets" Content="Trajets" Icon="Add" Foreground="white"/>
+                <NavigationViewItem x:Name="iHistorique" Content="Historique" Icon="AllApps" Foreground="white"/>
+                <NavigationViewItem x:Name="iFutur" Content="Futur trajets" Icon="Bookmarks" Foreground="white"/>
 
                 <NavigationViewItemSeparator/>
-                <NavigationViewItemHeader Content="Passager"/>
-                <NavigationViewItem x:Name="iConnexion" Content="Connexion" Icon="Switch" Tapped="iConnexion_Tapped"/>
+
+                <NavigationViewItemHeader Content="Passager" Foreground="white"/>
+                <NavigationViewItem x:Name="iConnexion" Content="Connexion" Icon="Switch" Foreground="white"/>
             </NavigationView.MenuItems>
 
+                
+                <Frame x:Name="mainFrame"/>
         </NavigationView>
 
-        <Frame x:Name="mainFrame"/>
+        
     </Grid>
 </Window>

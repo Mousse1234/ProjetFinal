@@ -34,46 +34,29 @@ namespace ProjetFinale
 
         }
 
-
-        private void iVilles_Tapped(object sender, TappedRoutedEventArgs e)
+        private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            this.mainFrame.Navigate(typeof(villes));
-        }
+            var item = (NavigationViewItem)args.SelectedItem;
 
-        private void iEncours_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            this.mainFrame.Navigate(typeof(Encours));
+            switch (item.Name)
+            {
+                case "iVilles":
+                    tblHeader.Name = "Ajout ville";
+                    mainFrame.Navigate(typeof(villes));
+                    break;
+                case "iEncours":
+                    tblHeader.Name = "Trajet en cours";
+                    mainFrame.Navigate(typeof(Encours));
+                    break;
+                case "iTerminer":
+                    tblHeader.Name = "Trajets termine";
+                    mainFrame.Navigate(typeof(Terminer));
+                    break;
+                case "iCouts":
+                    tblHeader.Name = "Couts";
+                    mainFrame.Navigate(typeof(couts));
+                    break;
+            }
         }
-
-        private void iTerminer_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            this.mainFrame.Navigate(typeof(Terminer));
-        }
-
-        private void iCouts_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            this.mainFrame.Navigate(typeof(couts));
-        }
-
-        private void iTrajets_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            this.mainFrame.Navigate(typeof(Trajets));
-        }
-
-        private void iHistorique_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            this.mainFrame.Navigate(typeof(BlankPage1));
-        }
-
-        private void iFutur_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            this.mainFrame.Navigate(typeof(Futur));
-        }
-
-        private void iConnexion_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            this.mainFrame.Navigate(typeof(Login));
-        }
-
     }
 }
