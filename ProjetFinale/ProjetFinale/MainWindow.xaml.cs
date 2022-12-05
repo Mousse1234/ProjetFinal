@@ -40,21 +40,29 @@ namespace ProjetFinale
 
             switch (item.Name)
             {
-                case "iVilles":
-                    tblHeader.Name = "Ajout ville";
-                    mainFrame.Navigate(typeof(villes));
-                    break;
                 case "iEncours":
-                    tblHeader.Name = "Trajet en cours";
-                    mainFrame.Navigate(typeof(Encours));
+                    tblHeader.Text = "Trajet en cours";
+                    //mainFrame.Navigate(typeof(Encours));
                     break;
                 case "iTerminer":
-                    tblHeader.Name = "Trajets termine";
-                    mainFrame.Navigate(typeof(Terminer));
+                    tblHeader.Text = "Trajets termine";
+                    //mainFrame.Navigate(typeof(Terminer));
                     break;
                 case "iCouts":
-                    tblHeader.Name = "Couts";
-                    mainFrame.Navigate(typeof(couts));
+                    tblHeader.Text = "Couts";
+                    //mainFrame.Navigate(typeof(couts));
+                    break;
+                case "iTrajets":
+                    tblHeader.Text = "Trajets";
+                    //mainFrame.Navigate(typeof(Trajets));
+                    break;
+                case "iFutur":
+                    tblHeader.Text = "Trajets a venir";
+                    //mainFrame.Navigate(typeof(Futur));
+                    break;
+                case "iConnexion":
+                    tblHeader.Text = "Connexion";
+                    mainFrame.Navigate(typeof(Connexion));
                     break;
             }
         }
