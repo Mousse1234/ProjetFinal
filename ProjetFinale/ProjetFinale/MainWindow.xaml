@@ -7,16 +7,25 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
         <CommandBar IsOpen="False" DefaultLabelPosition="Right">
             <AppBarButton x:Name="inscription" Icon="AddFriend" Label="inscription" Click="inscription_Click"/>
             <AppBarButton x:Name="connexion" Icon="Account" Label="connexion" Click="connexion_Click"/>
         </CommandBar>
+    
+    
+    <NavigationView Grid.Row="1" PaneDisplayMode="Left" PaneTitle="rUBERt" IsSettingsVisible="False" IsBackButtonVisible="Collapsed" SelectionChanged="NavigationView_SelectionChanged" Foreground="white"  Background="Black">
+
+        
 
 
-        <NavigationView PaneDisplayMode="Left" PaneTitle="rUBERt" IsSettingsVisible="False" IsBackButtonVisible="Collapsed" SelectionChanged="NavigationView_SelectionChanged" Foreground="white"  Background="Black">
-
-            <NavigationView.Header>
+        <NavigationView.Header>
                 <TextBlock x:Name="tblHeader"/>
             </NavigationView.Header>
             
@@ -32,7 +41,6 @@
                 <NavigationViewItemSeparator/>
 
                 <NavigationViewItemHeader Content="Admin" Foreground="white"/>
-                <NavigationViewItem x:Name="iVilles" Content="Villes" Icon="Add" Foreground="white"/>
                 <NavigationViewItem x:Name="iEncours" Content="Trajets en cours" Icon="AllApps" Foreground="white"/>
                 <NavigationViewItem x:Name="iTerminer" Content="Trajets terminer" Icon="Account" Foreground="white"/>
                 <NavigationViewItem x:Name="iCouts" Content="Coûts" Icon="Accept" Foreground="white"/>
@@ -47,7 +55,8 @@
                 <NavigationViewItemSeparator/>
 
                 <NavigationViewItemHeader Content="Passager" Foreground="white"/>
-                <NavigationViewItem x:Name="iConnexion" Content="Connexion" Icon="Switch" Foreground="white"/>
+                <NavigationViewItem x:Name="reserver" Content="Reserver trajet" Icon="Bookmarks" Foreground="white"/>
+
             </NavigationView.MenuItems>
 
             
@@ -55,7 +64,5 @@
                 
                 <Frame x:Name="mainFrame"/>
         </NavigationView>
-
-        
-    </StackPanel>
+    </Grid>
 </Window>

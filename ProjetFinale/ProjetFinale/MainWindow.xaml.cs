@@ -60,20 +60,26 @@ namespace ProjetFinale
                     tblHeader.Text = "Trajets a venir";
                     //mainFrame.Navigate(typeof(Futur));
                     break;
-                case "iConnexion":
-                    tblHeader.Text = "Connexion";
-                    mainFrame.Navigate(typeof(Connexion));
+                case "iHistorique":
+                    tblHeader.Text = "Historique";
+                    //mainFrame.Navigate(typeof(Historique));
+                    break;
+                case "reserver":
+                    tblHeader.Text = "Reserver un trajet";
+                    //mainFrame.Navigate(typeof(Historique));
                     break;
             }
         }
 
         private void inscription_Click(object sender, RoutedEventArgs e)
         {
+            tblHeader.Text = "";
             mainFrame.Navigate(typeof(Inscription));
         }
 
         private void connexion_Click(object sender, RoutedEventArgs e)
         {
+            tblHeader.Text = "";
             mainFrame.Navigate(typeof(Connexion));
         }
     }
