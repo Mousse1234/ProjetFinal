@@ -10,11 +10,8 @@
     <PublishProfile>win10-$(Platform).pubxml</PublishProfile>
     <UseWinUI>true</UseWinUI>
     <EnableMsixTooling>true</EnableMsixTooling>
-    <ApplicationIcon>uIcon.ico</ApplicationIcon>
+    <ApplicationIcon>Assets\uIcon.ico</ApplicationIcon>
   </PropertyGroup>
-  <ItemGroup>
-    <Content Remove="Assets\uIcon.ico" />
-  </ItemGroup>
   <ItemGroup>
     <None Remove="Connexion.xaml" />
     <None Remove="Inscription.xaml" />
@@ -28,7 +25,6 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
-    <Content Include="uIcon.ico" />
   </ItemGroup>
 
   <ItemGroup>

@@ -30,7 +30,6 @@ namespace ProjetFinale
         {
             this.InitializeComponent();
             Title = "rUBERt";
-             //= "https://cdn.icon-icons.com/icons2/2518/PNG/512/letter_u_icon_151239.png";
         }
         private void iRecherche_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {
