@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <ScrollViewer>
+    <ScrollViewer Background="Gray">
         <StackPanel>
             <Grid>
 
@@ -26,29 +26,27 @@
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock x:Name="TbInscription" Text="Inscription" FontSize="50" FontFamily="Comic Sans MS" Foreground="green" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="3" Padding="0,30,0,0"/>
-
-
-                <StackPanel Grid.Column="1" Grid.Row="1" Margin="0,50,0,0">
+                <StackPanel Grid.Column="1" Grid.Row="3">
                     <TextBlock Text="Prenom : " FontSize="20" Foreground="White" Margin="0 10 0 0"/>
                     <TextBox x:Name="Prenom1" FontSize="20" Margin="0 10 0 0"/>
                     <TextBlock x:Name="errPrenom1"  Text="Entrez votre Prenom" Foreground="Red"  Visibility="Collapsed" FontSize="15"/>
                 </StackPanel >
 
-                <StackPanel Grid.Column="1" Grid.Row="2">
+                <StackPanel Grid.Column="2" Grid.Row="3">
                     <TextBlock Text="Nom : " FontSize="20" Foreground="White" Margin="0 10 0 0"/>
                     <TextBox x:Name="Nom1" FontSize="20" Margin="0 10 0 0"/>
                     <TextBlock x:Name="errNom1"  Text="Entrez votre Nom" Foreground="Red"  Visibility="Collapsed" FontSize="15"/>
                 </StackPanel >
 
-                <StackPanel Grid.Column="1" Grid.Row="3">
+                <StackPanel Grid.Column="1" Grid.Row="1">
                     <TextBlock Text="Email : " FontSize="20" Foreground="White" Margin="0 10 0 0"/>
                     <TextBox x:Name="Email1" FontSize="20" Margin="0 10 0 0"/>
-                    <TextBlock x:Name="errEmail1"  Text="Entrez votre Email" Foreground="Red"  Visibility="Collapsed" FontSize="15"/>
+                    <TextBlock x:Name="errEmail1"  Text="" Foreground="Red"  Visibility="Collapsed" FontSize="15"/>
                 </StackPanel >
 
                 <StackPanel Grid.Column="1" Grid.Row="4">
@@ -57,20 +55,33 @@
                     <TextBlock x:Name="errNum1"  Text="Entrez votre numéro de téléphone" Foreground="Red"  Visibility="Collapsed" FontSize="15"/>
                 </StackPanel >
 
-                <StackPanel Grid.Column="1" Grid.Row="5">
+                <StackPanel Grid.Column="1" Grid.Row="2">
                     <TextBlock Text="Mot de passe : " FontSize="20" Foreground="White" Margin="0 10 0 0"/>
                     <TextBox x:Name="Mdp1" FontSize="20" Margin="0 10 0 0"/>
                     <TextBlock x:Name="errMdp1"  Text="Entrez le mot de passe" Foreground="red"  Visibility="Collapsed" FontSize="15"/>
                 </StackPanel >
 
-                <StackPanel Grid.Column="1" Grid.Row="6">
+                <StackPanel Grid.Column="2" Grid.Row="2">
+                    <TextBlock Text="Verification mot de passe : " FontSize="20" Foreground="White" Margin="0 10 0 0"/>
+                    <TextBox x:Name="VerifMdp1" FontSize="20" Margin="0 10 0 0"/>
+                    <TextBlock x:Name="errVerifMdp1"  Text="" Foreground="red"  Visibility="Collapsed" FontSize="15"/>
+                </StackPanel >
+
+                <StackPanel Grid.Column="1" Grid.Row="5">
                     <TextBlock Text="Adresse : " FontSize="20" Foreground="White" Margin="0 10 0 0"/>
                     <TextBox x:Name="Adresse1" FontSize="20" Margin="0 10 0 0"/>
                     <TextBlock x:Name="errAdresse1"  Text="Entrez votre Adresse" Foreground="Red"  Visibility="Collapsed" FontSize="15"/>
                 </StackPanel >
 
+                <StackPanel Grid.Column="1" Grid.Row="6">
+                    <TextBlock Text="Type Compte : " FontSize="20" Foreground="White" Margin="0 10 0 0"/>
+                    <TextBox x:Name="Type1" FontSize="20" Margin="0 10 0 0"/>
+                    <TextBlock x:Name="errType1"  Text="Entrez un type de compte (admin,conducteur ou passager)" Foreground="Red"  Visibility="Collapsed" FontSize="15"/>
+                </StackPanel >
+
                 <StackPanel Grid.Column="1" Grid.Row="7" Padding="0,0,0,20">
-                    <Button x:Name="button1" Content="Connexion" Click="button1_Click" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" FontSize="20"  Margin="0 20 0 0"/>
+                    <Button x:Name="button1" Content="Inscription" Click="button1_Click" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" FontSize="20"  Margin="0 20 0 0"/>
+                    <TextBlock x:Name="inscValide" Text="Votre compte a bien ete cree" Foreground="Green" Visibility="Collapsed" />
                 </StackPanel>
 
             </Grid>

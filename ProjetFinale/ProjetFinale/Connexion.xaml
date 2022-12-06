@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <ScrollViewer>
+    <ScrollViewer Background="Gray">
         <StackPanel>
             <Grid>
 
@@ -27,8 +27,6 @@
                     <ColumnDefinition Width="4*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
-
-                <TextBlock x:Name="TbConnexion" Text="Connexion" FontSize="50" FontFamily="Comic Sans MS" Foreground="green" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="3" Padding="0,30,0,0"/>
 
                 <StackPanel Grid.Column="1" Grid.Row="1" Margin="0,50,0,0">
                     <TextBlock Text="Email : " FontSize="20" Foreground="White" Margin="0 10 0 0"/>

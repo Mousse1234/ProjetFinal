@@ -48,6 +48,7 @@ namespace ProjetFinale
             {
                 verif = false;
                 errEmail1.Visibility = Visibility.Visible;
+                errEmail1.Text = "Entrez votre Email";
             }
 
             if (Prenom1.Text.Trim() == "")
@@ -67,6 +68,12 @@ namespace ProjetFinale
                 verif = false;
                 errMdp1.Visibility = Visibility.Visible;
             }
+            if (VerifMdp1.Text.Trim() == "")
+            {
+                verif = false;
+                errVerifMdp1.Visibility = Visibility.Visible;
+                errVerifMdp1.Text = "Repeter votre mot de passe";
+            }
 
             if (Adresse1.Text.Trim() == "")
             {
@@ -74,9 +81,36 @@ namespace ProjetFinale
                 errAdresse1.Visibility = Visibility.Visible;
             }
 
+            if (Mdp1.Text != VerifMdp1.Text)
+            {
+                verif = false;
+                errVerifMdp1.Visibility = Visibility.Visible;
+                errVerifMdp1.Text = "Les mots de passe ne correspondent pas";
+            }
+
             if (verif == true)
             {
-                //connection route menu
+                Usage us = new Usage()
+                {
+                    Email = Email1.Text,
+                    Password = Mdp1.Text,
+                    Prenom = Prenom1.Text,
+                    Nom = Nom1.Text,
+                    Adresse = Adresse1.Text,
+                    NoTel = Num1.Text,
+                    TypeCompte = Type1.Text
+                };
+
+                if (GestionBD.getInstance().inscription(us) > 0)
+                {
+                    inscValide.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    inscValide.Visibility = Visibility.Collapsed;
+                    Email1.Text = "Email deja existant";
+                    errEmail1.Visibility = Visibility.Visible;
+                }
             }
         }
 
@@ -88,6 +122,7 @@ namespace ProjetFinale
             errNum1.Visibility = Visibility.Collapsed;
             errAdresse1.Visibility = Visibility.Collapsed;
             errMdp1.Visibility = Visibility.Collapsed;
+            errVerifMdp1.Visibility = Visibility.Collapsed;
         }
     }
 }
