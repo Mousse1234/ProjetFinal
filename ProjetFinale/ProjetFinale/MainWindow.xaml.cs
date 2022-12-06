@@ -25,8 +25,10 @@ namespace ProjetFinale
     /// </summary>
     public sealed partial class MainWindow : Window
     {
+        string connex = "guest";
+        string user = "guest";
 
-     public MainWindow()
+        public MainWindow()
         {
             this.InitializeComponent();
             Title = "rUBERt";
@@ -75,13 +77,13 @@ namespace ProjetFinale
 
         private void inscription_Click(object sender, RoutedEventArgs e)
         {
-            tblHeader.Text = "";
+            tblHeader.Text = "Inscription";
             mainFrame.Navigate(typeof(Inscription));
         }
 
         private void connexion_Click(object sender, RoutedEventArgs e)
         {
-            tblHeader.Text = "";
+            tblHeader.Text = "Connexion";
             mainFrame.Navigate(typeof(Connexion));
         }
     }
