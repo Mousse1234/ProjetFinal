@@ -24,6 +24,8 @@ namespace ProjetFinale
     /// </summary>
     public sealed partial class Connexion : Page
     {
+        public static string connex = "guest";
+        public static string user = "guest";
 
         bool verif = true;
         ObservableCollection<Usage> listeCompte = new ObservableCollection<Usage>();
@@ -59,8 +61,9 @@ namespace ProjetFinale
                 if (listeCompte.Count == 1)
                 {
                     errConn.Visibility = Visibility.Collapsed;
-                    //Fix global variable pour conserver le type de compte (admin conducteur ou passage) dans chaque page
-                    //MainWindow.connex = listeCompte.ToString();
+                    //Fix update mainwindow usagerC lors de la connexion (change guest)
+                    connex = listeCompte.ToString();
+                    user = Email.Text;
 
                     //Fix le transfer vers le mainFrame apres la connexion
                     //mainFrame.Navigate(typeof(MainWindow));

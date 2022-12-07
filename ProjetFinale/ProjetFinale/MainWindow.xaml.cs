@@ -25,13 +25,13 @@ namespace ProjetFinale
     /// </summary>
     public sealed partial class MainWindow : Window
     {
-        string connex = "guest";
-        string user = "guest";
+        
 
         public MainWindow()
         {
             this.InitializeComponent();
             Title = "rUBERt";
+            usagerC.Text = "Bienvenue " + Connexion.user;
         }
         private void iRecherche_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {
@@ -86,5 +86,6 @@ namespace ProjetFinale
             tblHeader.Text = "Connexion";
             mainFrame.Navigate(typeof(Connexion));
         }
+
     }
 }
