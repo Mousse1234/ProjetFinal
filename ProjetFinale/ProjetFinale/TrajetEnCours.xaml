@@ -8,7 +8,20 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel Background="Gray">
-        <TextBlock>TEST</TextBlock>
-    </StackPanel>
+    <Grid Background="Gray">
+        <StackPanel HorizontalAlignment="Center">
+            <TextBlock x:Name="show">TEST</TextBlock>
+            <ComboBox x:Name="cbTypeVehicule" Header="Choisir le type de Véhicule: "></ComboBox>
+            <Button x:Name="Valider" Content="Valider" Click="Valider_Click"/>
+
+            <StackPanel x:Name="Resultat" Visibility="Collapsed">
+                <TextBlock x:Name="tbDate"/>
+                <TextBlock x:Name="tbHdepart"/>
+                <TextBlock x:Name="tbHarrivee"/>
+                <TextBlock x:Name="tbnbPlace"/>
+                <TextBlock x:Name="tbPrix"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+    
 </Page>
