@@ -69,7 +69,12 @@
                     <TextBlock x:Name="errAdresse1"  Text="Entrez votre Adresse" Foreground="Red"  Visibility="Collapsed" FontSize="15"/>
                 </StackPanel >
 
-                <StackPanel Grid.Column="1" Grid.Row="7" Padding="0,0,0,20">
+                <ComboBox x:Name="listeStatut" Header="Choisissez un statut" FontSize="20" Margin="0 10 0 0" Grid.Row="7" Grid.Column="1" SelectionChanged="listeCategorie_SelectionChanged">
+                    <x:String>Conducteur</x:String>
+                    <x:String>Passager</x:String>
+                </ComboBox>
+                
+                <StackPanel Grid.Column="1" Grid.Row="8" Padding="0,0,0,20">
                     <Button x:Name="button1" Content="Connexion" Click="button1_Click" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" FontSize="20"  Margin="0 20 0 0"/>
                 </StackPanel>
 

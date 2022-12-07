@@ -89,5 +89,10 @@ namespace ProjetFinale
             errAdresse1.Visibility = Visibility.Collapsed;
             errMdp1.Visibility = Visibility.Collapsed;
         }
+
+        private void listeCategorie_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Usage m = (Usage)listeStatut.SelectedItem;
+        }
     }
 }
