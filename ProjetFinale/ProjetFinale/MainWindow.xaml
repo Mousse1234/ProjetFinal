@@ -13,6 +13,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+
         
         <CommandBar IsOpen="False" DefaultLabelPosition="Right">
             <AppBarButton x:Name="inscription" Icon="AddFriend" Label="inscription" Click="inscription_Click"/>
@@ -39,7 +40,7 @@
 
             <NavigationView.MenuItems>
                 <NavigationViewItemSeparator/>
-
+                <TextBlock Foreground="White" x:Name="usagerC" />
                 <NavigationViewItemHeader Content="Admin" Foreground="white"/>
                 <NavigationViewItem x:Name="iEncours" Content="Trajets en cours" Icon="AllApps" Foreground="white"/>
                 <NavigationViewItem x:Name="iTerminer" Content="Trajets terminer" Icon="Account" Foreground="white"/>
