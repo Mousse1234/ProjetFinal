@@ -41,7 +41,7 @@
             <NavigationView.MenuItems>
                 <NavigationViewItemSeparator/>
                 
-                <TextBlock Foreground="White" x:Name="usagerC" />
+                <TextBlock HorizontalAlignment="Center" Foreground="White" x:Name="usagerC" />
                 
                 <StackPanel x:Name="adminSec">
                     <NavigationViewItemHeader x:Name="hdrA" Content="Admin" Foreground="white"/>
