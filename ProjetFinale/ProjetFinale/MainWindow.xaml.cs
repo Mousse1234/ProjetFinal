@@ -46,7 +46,7 @@ namespace ProjetFinale
             {
                 case "iEncours":
                     tblHeader.Text = "Trajet en cours";
-                    //mainFrame.Navigate(typeof(Encours));
+                    mainFrame.Navigate(typeof(TrajetEnCours));
                     break;
                 case "iTerminer":
                     tblHeader.Text = "Trajets termine";

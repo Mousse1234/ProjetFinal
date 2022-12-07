@@ -15,6 +15,7 @@
   <ItemGroup>
     <None Remove="Connexion.xaml" />
     <None Remove="Inscription.xaml" />
+    <None Remove="TrajetEnCours.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,6 +42,11 @@
   -->
   <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <ProjectCapability Include="Msix" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="TrajetEnCours.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Inscription.xaml">
