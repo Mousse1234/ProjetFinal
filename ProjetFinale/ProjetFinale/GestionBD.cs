@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Microsoft.UI.Xaml.Controls;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,6 +13,18 @@ namespace ProjetFinale
     {
         MySqlConnection con;
         static GestionBD gestionBD = null;
+
+        TextBlock tblUser;
+        Frame mainFrame;
+        StackPanel bobPannel;
+        StackPanel alicePannel;
+        StackPanel panePannel;
+
+        public TextBlock TblUser { get => tblUser; set => tblUser = value; }
+        public Frame MainFrame { get => mainFrame; set => mainFrame = value; }
+        public StackPanel BobPannel { get => bobPannel; set => bobPannel = value; }
+        public StackPanel AlicePannel { get => alicePannel; set => alicePannel = value; }
+        public StackPanel PanePannel { get => panePannel; set => panePannel = value; }
 
         public GestionBD()
         {

@@ -24,8 +24,7 @@ namespace ProjetFinale
     /// </summary>
     public sealed partial class Connexion : Page
     {
-        public static string connex = "guest";
-        public static string user = "guest";
+       
 
         bool verif = true;
         ObservableCollection<Usage> listeCompte = new ObservableCollection<Usage>();
@@ -61,12 +60,47 @@ namespace ProjetFinale
                 if (listeCompte.Count == 1)
                 {
                     errConn.Visibility = Visibility.Collapsed;
-                    //Fix update mainwindow usagerC lors de la connexion (change guest)
-                    connex = listeCompte.ToString();
-                    user = Email.Text;
+                    //Fix update mainwindow usagerC lors de la connexion (change guest) FIX TRIM
+                    MainWindow.connex = listeCompte[0].ToString();
+                    MainWindow.user = Email.Text;
+
+                    GestionBD.getInstance().TblUser.Text = "Bienvenue: " + MainWindow.user;
 
                     //Fix le transfer vers le mainFrame apres la connexion
-                    //mainFrame.Navigate(typeof(MainWindow));
+                    GestionBD.getInstance().MainFrame.Navigate(typeof(Inscription));
+
+                    if (MainWindow.connex == "admin")
+                    {
+                        GestionBD.getInstance().BobPannel.Visibility = Visibility.Visible;
+
+                        GestionBD.getInstance().AlicePannel.Visibility = Visibility.Collapsed;
+
+                        GestionBD.getInstance().PanePannel.Visibility = Visibility.Collapsed;
+                    }
+                    else if (MainWindow.connex == "conducteur")
+                    {
+                        GestionBD.getInstance().BobPannel.Visibility = Visibility.Collapsed;
+
+                        GestionBD.getInstance().AlicePannel.Visibility = Visibility.Visible;
+
+                        GestionBD.getInstance().PanePannel.Visibility = Visibility.Collapsed;
+                    }
+                    else if (MainWindow.connex == "passager")
+                    {
+                        GestionBD.getInstance().BobPannel.Visibility = Visibility.Collapsed;
+
+                        GestionBD.getInstance().AlicePannel.Visibility = Visibility.Collapsed;
+
+                        GestionBD.getInstance().PanePannel.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        GestionBD.getInstance().BobPannel.Visibility = Visibility.Collapsed;
+
+                        GestionBD.getInstance().AlicePannel.Visibility = Visibility.Collapsed;
+
+                        GestionBD.getInstance().PanePannel.Visibility = Visibility.Collapsed;
+                    }
                 }
                 else if (listeCompte.Count == 0)
                 {

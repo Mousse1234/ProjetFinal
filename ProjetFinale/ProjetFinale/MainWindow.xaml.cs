@@ -25,13 +25,28 @@ namespace ProjetFinale
     /// </summary>
     public sealed partial class MainWindow : Window
     {
-        
+        public static string connex = "invite";
+        public static string user = "invite";
 
         public MainWindow()
         {
             this.InitializeComponent();
             Title = "rUBERt";
-            usagerC.Text = "Bienvenue " + Connexion.user;
+            usagerC.Text = "Bienvenue: " + user;
+            GestionBD.getInstance().TblUser =  usagerC;
+            GestionBD.getInstance().MainFrame = mainFrame;
+
+            GestionBD.getInstance().BobPannel = adminSec;
+            GestionBD.getInstance().AlicePannel = conducteurSec;
+            GestionBD.getInstance().PanePannel = passagerSec;
+
+            
+                adminSec.Visibility = Visibility.Collapsed;
+
+                conducteurSec.Visibility = Visibility.Collapsed;
+
+                passagerSec.Visibility = Visibility.Collapsed;
+            
         }
         private void iRecherche_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {
@@ -87,5 +102,7 @@ namespace ProjetFinale
             mainFrame.Navigate(typeof(Connexion));
         }
 
+        
+  
     }
 }
