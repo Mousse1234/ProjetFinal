@@ -35,17 +35,39 @@ namespace ProjetFinale
             usagerC.Text = "Bienvenue: " + user;
             GestionBD.getInstance().TblUser =  usagerC;
             GestionBD.getInstance().MainFrame = mainFrame;
+            GestionBD.getInstance().TblH = tblHeader;
 
-            GestionBD.getInstance().BobPannel = adminSec;
-            GestionBD.getInstance().AlicePannel = conducteurSec;
-            GestionBD.getInstance().PanePannel = passagerSec;
+            GestionBD.getInstance().HdrAd = hdrA;
+            GestionBD.getInstance().HdrCo = hdrC;
+            GestionBD.getInstance().HdrPa = hdrP;
 
-            
-                adminSec.Visibility = Visibility.Collapsed;
+            GestionBD.getInstance().Encours = iEncours;
+            GestionBD.getInstance().Termine = iTerminer;
+            GestionBD.getInstance().Couts = iCouts;
 
-                conducteurSec.Visibility = Visibility.Collapsed;
+            GestionBD.getInstance().Trajets = iTrajets;
+            GestionBD.getInstance().Historique = iHistorique;
+            GestionBD.getInstance().Futur = iFutur;
 
-                passagerSec.Visibility = Visibility.Collapsed;
+            GestionBD.getInstance().Reserver = reserver;
+
+            GestionBD.getInstance().Encours.Visibility = Visibility.Collapsed;
+            GestionBD.getInstance().Termine.Visibility = Visibility.Collapsed;
+            GestionBD.getInstance().Couts.Visibility = Visibility.Collapsed;
+
+            GestionBD.getInstance().Trajets.Visibility = Visibility.Collapsed;
+            GestionBD.getInstance().Historique.Visibility = Visibility.Collapsed;
+            GestionBD.getInstance().Futur.Visibility = Visibility.Collapsed;
+
+            GestionBD.getInstance().HdrAd.Visibility = Visibility.Collapsed;
+            GestionBD.getInstance().HdrCo.Visibility = Visibility.Collapsed;
+            GestionBD.getInstance().HdrPa.Visibility = Visibility.Collapsed;
+
+            GestionBD.getInstance().Reserver.Visibility = Visibility.Collapsed;
+
+
+            mainFrame.Navigate(typeof(TrajetDispo));
+            tblHeader.Text = "Trajets disponnibles";
             
         }
         private void iRecherche_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)

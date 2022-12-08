@@ -43,7 +43,7 @@ namespace ProjetFinale
                 errEmail.Visibility = Visibility.Visible;
             }
 
-            if (Mdp.Text.Trim() == "")
+            if (Mdp.Password.Trim() == "")
             {
                 verif = false;
                 errMdp.Visibility = Visibility.Visible;
@@ -52,7 +52,7 @@ namespace ProjetFinale
             if (verif == true)
             {
                 string a = Email.Text;
-                string b = Mdp.Text;
+                string b = Mdp.Password;
 
                 //retourne type de compte si le compte est existant
                 listeCompte = GestionBD.getInstance().listeCompte(a,b);
@@ -67,39 +67,75 @@ namespace ProjetFinale
                     GestionBD.getInstance().TblUser.Text = "Bienvenue: " + MainWindow.user;
 
                     //Fix le transfer vers le mainFrame apres la connexion
-                    GestionBD.getInstance().MainFrame.Navigate(typeof(Inscription));
+                    GestionBD.getInstance().MainFrame.Navigate(typeof(TrajetDispo));
+                    GestionBD.getInstance().TblH.Text = "Trajets disponnibles";
 
                     if (MainWindow.connex == "admin")
                     {
-                        GestionBD.getInstance().BobPannel.Visibility = Visibility.Visible;
+                        GestionBD.getInstance().Encours.Visibility = Visibility.Visible;
+                        GestionBD.getInstance().Termine.Visibility = Visibility.Visible;
+                        GestionBD.getInstance().Couts.Visibility = Visibility.Visible;
 
-                        GestionBD.getInstance().AlicePannel.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().Trajets.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().Historique.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().Futur.Visibility = Visibility.Collapsed;
 
-                        GestionBD.getInstance().PanePannel.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().HdrAd.Visibility = Visibility.Visible;
+                        GestionBD.getInstance().HdrCo.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().HdrPa.Visibility = Visibility.Collapsed;
+
+                        GestionBD.getInstance().Reserver.Visibility = Visibility.Collapsed;
                     }
                     else if (MainWindow.connex == "conducteur")
                     {
-                        GestionBD.getInstance().BobPannel.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().Encours.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().Termine.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().Couts.Visibility = Visibility.Collapsed;
 
-                        GestionBD.getInstance().AlicePannel.Visibility = Visibility.Visible;
+                        GestionBD.getInstance().Trajets.Visibility = Visibility.Visible;
+                        GestionBD.getInstance().Historique.Visibility = Visibility.Visible;
+                        GestionBD.getInstance().Futur.Visibility = Visibility.Visible;
 
-                        GestionBD.getInstance().PanePannel.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().HdrAd.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().HdrCo.Visibility = Visibility.Visible;
+                        GestionBD.getInstance().HdrPa.Visibility = Visibility.Collapsed;
+
+                        GestionBD.getInstance().Reserver.Visibility = Visibility.Collapsed;
+
                     }
                     else if (MainWindow.connex == "passager")
                     {
-                        GestionBD.getInstance().BobPannel.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().Encours.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().Termine.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().Couts.Visibility = Visibility.Collapsed;
 
-                        GestionBD.getInstance().AlicePannel.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().Trajets.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().Historique.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().Futur.Visibility = Visibility.Collapsed;
 
-                        GestionBD.getInstance().PanePannel.Visibility = Visibility.Visible;
+                        GestionBD.getInstance().HdrAd.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().HdrCo.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().HdrPa.Visibility = Visibility.Visible;
+
+                        GestionBD.getInstance().Reserver.Visibility = Visibility.Visible;
+                        
                     }
                     else
                     {
-                        GestionBD.getInstance().BobPannel.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().Encours.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().Termine.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().Couts.Visibility = Visibility.Collapsed;
 
-                        GestionBD.getInstance().AlicePannel.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().Trajets.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().Historique.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().Futur.Visibility = Visibility.Collapsed;
 
-                        GestionBD.getInstance().PanePannel.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().HdrAd.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().HdrCo.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().HdrPa.Visibility = Visibility.Collapsed;
+
+                        GestionBD.getInstance().Reserver.Visibility = Visibility.Collapsed;
+
                     }
                 }
                 else if (listeCompte.Count == 0)
