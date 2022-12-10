@@ -59,7 +59,7 @@ namespace ProjetFinale
 
             MySqlCommand commande = new MySqlCommand();
             commande.Connection = con;
-            commande.CommandText = "Select typeCompte,idUsage from usages where email = '" + a + "' and password = '" + b + "'";
+            commande.CommandText = "Select typeCompte,idUsage,prenom from usages where email = '" + a + "' and password = '" + b + "'";
 
             con.Open();
             MySqlDataReader r = commande.ExecuteReader();
@@ -69,7 +69,8 @@ namespace ProjetFinale
                 Usage us = new Usage()
                 {
                     TypeCompte = r.GetString("typeCompte"),
-                    IdUsage = r.GetInt32("idUsage")
+                    IdUsage = r.GetInt32("idUsage"),
+                    Prenom = r.GetString("prenom")
                 };
                 liste.Add(us);
             }

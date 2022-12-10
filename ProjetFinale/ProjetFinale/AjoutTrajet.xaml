@@ -21,7 +21,7 @@
         <TextBlock Text="Selectionner la ville d'arrivee"/>
         <ComboBox x:Name="cbxArr" />
 
-        <Button x:Name="ajoutT" Click="ajoutT_Click" />
+        <Button x:Name="ajoutT" Click="ajoutT_Click" Content="Ajouter" />
         <TextBlock x:Name="trajetValide" Text="Le trajet a bien ete ajoute" Foreground="Green" Visibility="Collapsed"/>
         <TextBlock x:Name="errTrajet" Text="Erreur lors de l'ajout du trajet" Foreground="Red" Visibility="Collapsed"/>
 

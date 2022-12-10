@@ -25,15 +25,21 @@ namespace ProjetFinale
     /// </summary>
     public sealed partial class MainWindow : Window
     {
+        // VARIABLE DU COMPTE CONNECTÉ
+        // connex = typeCompte (admin,conducteur,passager)
         public static string connex = "invite";
+        // user = email
         public static string user = "invite";
+        // idUsage = ID
         public static int idUsage = 0;
+        // prenomCompte = prenom du detentaire du compte
+        public static string prenomCompte = "invite";
 
         public MainWindow()
         {
             this.InitializeComponent();
             Title = "rUBERt";
-            usagerC.Text = "Bienvenue: " + user;
+            usagerC.Text = "Bienvenue: " + prenomCompte;
             GestionBD.getInstance().TblUser =  usagerC;
             GestionBD.getInstance().MainFrame = mainFrame;
             GestionBD.getInstance().TblH = tblHeader;
@@ -68,7 +74,7 @@ namespace ProjetFinale
 
 
             mainFrame.Navigate(typeof(TrajetDispo));
-            tblHeader.Text = "Trajets disponnibles";
+            tblHeader.Text = "Trajets à venir";
             
         }
         private void iRecherche_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
