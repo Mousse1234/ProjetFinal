@@ -9,6 +9,7 @@ using Microsoft.UI.Xaml.Navigation;
 using Microsoft.UI.Xaml.Shapes;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -106,11 +107,11 @@ namespace ProjetFinale
                     break;
                 case "iFutur":
                     tblHeader.Text = "Trajets a venir";
-                    //mainFrame.Navigate(typeof(Futur));
+                    mainFrame.Navigate(typeof(TrajetAvenir));
                     break;
                 case "iHistorique":
-                    tblHeader.Text = "Historique";
-                    //mainFrame.Navigate(typeof(Historique));
+                    tblHeader.Text = "Mon historique";
+                    mainFrame.Navigate(typeof(MonHistorique));
                     break;
                 case "reserver":
                     tblHeader.Text = "Reserver un trajet";

@@ -54,9 +54,9 @@
 
                 
                     <NavigationViewItemHeader x:Name="hdrC" Content="Conducteur" Foreground="white"/>
-                    <NavigationViewItem x:Name="iTrajets" Content="Trajets" Icon="Add" Foreground="white"/>
+                    <NavigationViewItem x:Name="iTrajets" Content="Ajout trajets" Icon="Add" Foreground="white"/>
                     <NavigationViewItem x:Name="iHistorique" Content="Historique" Icon="AllApps" Foreground="white"/>
-                    <NavigationViewItem x:Name="iFutur" Content="Futur trajets" Icon="Bookmarks" Foreground="white"/>
+                    <NavigationViewItem x:Name="iFutur" Content="Trajets a venir" Icon="Bookmarks" Foreground="white"/>
                 
 
                 <NavigationViewItemSeparator/>
