@@ -26,6 +26,14 @@ namespace ProjetFinale
         public TrajetEnCours()
         {
             this.InitializeComponent();
+            lvListeTrajet.ItemsSource = GestionBD.getInstance().getTrajet();
+
+        }
+
+        private void lvLivre_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = lvListeTrajet.SelectedIndex;
+            //this.Frame.Navigate(typeof(Trajet), index);
         }
     }
 }

@@ -8,7 +8,46 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel Background="Gray">
-        <TextBlock>TEST</TextBlock>
-    </StackPanel>
+    <Grid>
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+
+
+        <TextBlock x:Name="TbTitre" Text="Liste des trajets" FontSize="50" FontFamily="Comic Sans MS" Foreground="white" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <ListView x:Name="lvListeTrajet" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2320" Margin="20 10 0 0" SelectionChanged="lvLivre_SelectionChanged">
+            <ListView.ItemTemplate>
+
+                <DataTemplate x:DataType="local:Trajet">
+
+
+
+
+
+                        <StackPanel HorizontalAlignment="center" VerticalAlignment="Center" Margin="100,0,0,0">
+
+                            <TextBlock  Text="{x:Bind VilleDepart}" Margin="5,5,5,10" FontSize="35" FontWeight="Bold" FontFamily="Comic Sans MS"/>
+
+                            <TextBlock Text="{x:Bind VilleArrivee}" Margin="5,5,5,10" FontSize="25" FontFamily="Comic Sans MS"/>
+
+                            <TextBlock Text="{x:Bind Immatriculation}" Margin="5,5,5,10" FontSize="25" FontFamily="Comic Sans MS"/>
+
+                            <TextBlock Text="{x:Bind Status}" Margin="5,5,5,10" FontSize="25" FontFamily="Comic Sans MS"/>
+
+                            <TextBlock Text="{x:Bind NbrArret}" Margin="5,5,5,10" FontSize="25" FontFamily="Comic Sans MS"/>
+
+                    </StackPanel>
+
+
+                </DataTemplate>
+
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+        <Frame x:Name="MainFrame" Grid.Row="1"/>
+    </Grid>
 </Page>

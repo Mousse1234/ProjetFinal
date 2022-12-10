@@ -129,7 +129,7 @@ namespace ProjetFinale
 
             MySqlCommand commande = new MySqlCommand();
             commande.Connection = con;
-            commande.CommandText = "Select * from trajets where status = 'avenir'";
+            commande.CommandText = "Select * from trajets where status = 'encours'";
 
             con.Open();
             MySqlDataReader r = commande.ExecuteReader();
