@@ -61,8 +61,9 @@ namespace ProjetFinale
                 {
                     errConn.Visibility = Visibility.Collapsed;
                     //Fix update mainwindow usagerC lors de la connexion (change guest) FIX TRIM
-                    MainWindow.connex = listeCompte[0].ToString();
+                    MainWindow.connex = listeCompte[0].TypeCompte.ToString();
                     MainWindow.user = Email.Text;
+                    MainWindow.idUsage = Int32.Parse(listeCompte[0].IdUsage.ToString());
 
                     GestionBD.getInstance().TblUser.Text = "Bienvenue: " + MainWindow.user;
 

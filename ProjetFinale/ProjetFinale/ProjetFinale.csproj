@@ -13,6 +13,7 @@
     <ApplicationIcon>Assets\uIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="AjoutTrajet.xaml" />
     <None Remove="Connexion.xaml" />
     <None Remove="Inscription.xaml" />
     <None Remove="TrajetDispo.xaml" />
@@ -73,4 +74,10 @@
   <PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
   </PropertyGroup>
+  <ItemGroup>
+    <CustomAdditionalCompileInputs Remove="AjoutTrajet.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Remove="AjoutTrajet.xaml" />
+  </ItemGroup>
 </Project>
