@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Microsoft.UI.Xaml.Controls;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,6 +13,34 @@ namespace ProjetFinale
     {
         MySqlConnection con;
         static GestionBD gestionBD = null;
+
+        TextBlock tblUser;
+        Frame mainFrame;
+        NavigationViewItemHeader hdrAd;
+        NavigationViewItemHeader hdrCo;
+        NavigationViewItemHeader hdrPa;
+        NavigationViewItem encours;
+        NavigationViewItem termine;
+        NavigationViewItem couts;
+        NavigationViewItem trajets;
+        NavigationViewItem historique;
+        NavigationViewItem futur;
+        NavigationViewItem reserver;
+        TextBlock tblH;
+
+        public TextBlock TblUser { get => tblUser; set => tblUser = value; }
+        public Frame MainFrame { get => mainFrame; set => mainFrame = value; }
+        public TextBlock TblH { get => tblH; set => tblH = value; }
+        public NavigationViewItemHeader HdrAd { get => hdrAd; set => hdrAd = value; }
+        public NavigationViewItemHeader HdrCo { get => hdrCo; set => hdrCo = value; }
+        public NavigationViewItemHeader HdrPa { get => hdrPa; set => hdrPa = value; }
+        public NavigationViewItem Encours { get => encours; set => encours = value; }
+        public NavigationViewItem Termine { get => termine; set => termine = value; }
+        public NavigationViewItem Couts { get => couts; set => couts = value; }
+        public NavigationViewItem Trajets { get => trajets; set => trajets = value; }
+        public NavigationViewItem Historique { get => historique; set => historique = value; }
+        public NavigationViewItem Futur { get => futur; set => futur = value; }
+        public NavigationViewItem Reserver { get => reserver; set => reserver = value; }
 
         public GestionBD()
         {
@@ -92,6 +121,38 @@ namespace ProjetFinale
             }
 
             return i;
+        }
+
+        public ObservableCollection<Trajet> getTrajet()
+        {
+            ObservableCollection<Trajet> liste = new ObservableCollection<Trajet>();
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "Select * from trajets where status = 'avenir'";
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+            while (r.Read())
+            {
+
+                Trajet tr = new Trajet()
+                {
+                    IdTrajet = r.GetInt32("idTrajet"),
+                    Immatriculation = r.GetString("immatriculation"),
+                    IdUsage = r.GetInt32("idUsage"),
+                    VilleDepart = r.GetString("villeDepart"),
+                    VilleArrivee = r.GetString("villeArrivee"),
+                    NbrArret = r.GetInt32("nbrArret"),
+                    Status = r.GetString("status"),
+                };
+                liste.Add(tr);
+            }
+            r.Close();
+            con.Close();
+
+            return liste;
+
         }
 
     }

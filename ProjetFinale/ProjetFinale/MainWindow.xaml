@@ -40,24 +40,31 @@
 
             <NavigationView.MenuItems>
                 <NavigationViewItemSeparator/>
-                <TextBlock Foreground="White" x:Name="usagerC" />
-                <NavigationViewItemHeader Content="Admin" Foreground="white"/>
-                <NavigationViewItem x:Name="iEncours" Content="Trajets en cours" Icon="AllApps" Foreground="white"/>
-                <NavigationViewItem x:Name="iTerminer" Content="Trajets terminer" Icon="Account" Foreground="white"/>
-                <NavigationViewItem x:Name="iCouts" Content="Coûts" Icon="Accept" Foreground="white"/>
+                
+                <TextBlock HorizontalAlignment="Center" Foreground="White" x:Name="usagerC" />
+                
+                
+                    <NavigationViewItemHeader x:Name="hdrA" Content="Admin" Foreground="white"/>
+                    <NavigationViewItem x:Name="iEncours" Content="Trajets en cours" Icon="AllApps" Foreground="white"/>
+                    <NavigationViewItem x:Name="iTerminer" Content="Trajets terminer" Icon="Account" Foreground="white"/>
+                    <NavigationViewItem x:Name="iCouts" Content="Coûts" Icon="Accept" Foreground="white"/>
+                
+                
+                <NavigationViewItemSeparator/>
+
+                
+                    <NavigationViewItemHeader x:Name="hdrC" Content="Conducteur" Foreground="white"/>
+                    <NavigationViewItem x:Name="iTrajets" Content="Trajets" Icon="Add" Foreground="white"/>
+                    <NavigationViewItem x:Name="iHistorique" Content="Historique" Icon="AllApps" Foreground="white"/>
+                    <NavigationViewItem x:Name="iFutur" Content="Futur trajets" Icon="Bookmarks" Foreground="white"/>
+                
 
                 <NavigationViewItemSeparator/>
 
-                <NavigationViewItemHeader Content="Conducteur" Foreground="white"/>
-                <NavigationViewItem x:Name="iTrajets" Content="Trajets" Icon="Add" Foreground="white"/>
-                <NavigationViewItem x:Name="iHistorique" Content="Historique" Icon="AllApps" Foreground="white"/>
-                <NavigationViewItem x:Name="iFutur" Content="Futur trajets" Icon="Bookmarks" Foreground="white"/>
-
-                <NavigationViewItemSeparator/>
-
-                <NavigationViewItemHeader Content="Passager" Foreground="white"/>
-                <NavigationViewItem x:Name="reserver" Content="Reserver trajet" Icon="Bookmarks" Foreground="white"/>
-
+                
+                    <NavigationViewItemHeader x:Name="hdrP" Content="Passager" Foreground="white"/>
+                    <NavigationViewItem x:Name="reserver" Content="Reserver trajet" Icon="Bookmarks" Foreground="white"/>
+                
             </NavigationView.MenuItems>
 
             

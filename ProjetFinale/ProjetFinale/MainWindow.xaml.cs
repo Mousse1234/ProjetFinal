@@ -25,13 +25,50 @@ namespace ProjetFinale
     /// </summary>
     public sealed partial class MainWindow : Window
     {
-        
+        public static string connex = "invite";
+        public static string user = "invite";
 
         public MainWindow()
         {
             this.InitializeComponent();
             Title = "rUBERt";
-            usagerC.Text = "Bienvenue " + Connexion.user;
+            usagerC.Text = "Bienvenue: " + user;
+            GestionBD.getInstance().TblUser =  usagerC;
+            GestionBD.getInstance().MainFrame = mainFrame;
+            GestionBD.getInstance().TblH = tblHeader;
+
+            GestionBD.getInstance().HdrAd = hdrA;
+            GestionBD.getInstance().HdrCo = hdrC;
+            GestionBD.getInstance().HdrPa = hdrP;
+
+            GestionBD.getInstance().Encours = iEncours;
+            GestionBD.getInstance().Termine = iTerminer;
+            GestionBD.getInstance().Couts = iCouts;
+
+            GestionBD.getInstance().Trajets = iTrajets;
+            GestionBD.getInstance().Historique = iHistorique;
+            GestionBD.getInstance().Futur = iFutur;
+
+            GestionBD.getInstance().Reserver = reserver;
+
+            GestionBD.getInstance().Encours.Visibility = Visibility.Collapsed;
+            GestionBD.getInstance().Termine.Visibility = Visibility.Collapsed;
+            GestionBD.getInstance().Couts.Visibility = Visibility.Collapsed;
+
+            GestionBD.getInstance().Trajets.Visibility = Visibility.Collapsed;
+            GestionBD.getInstance().Historique.Visibility = Visibility.Collapsed;
+            GestionBD.getInstance().Futur.Visibility = Visibility.Collapsed;
+
+            GestionBD.getInstance().HdrAd.Visibility = Visibility.Collapsed;
+            GestionBD.getInstance().HdrCo.Visibility = Visibility.Collapsed;
+            GestionBD.getInstance().HdrPa.Visibility = Visibility.Collapsed;
+
+            GestionBD.getInstance().Reserver.Visibility = Visibility.Collapsed;
+
+
+            mainFrame.Navigate(typeof(TrajetDispo));
+            tblHeader.Text = "Trajets disponnibles";
+            
         }
         private void iRecherche_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {
@@ -46,7 +83,7 @@ namespace ProjetFinale
             {
                 case "iEncours":
                     tblHeader.Text = "Trajet en cours";
-                    //mainFrame.Navigate(typeof(Encours));
+                    mainFrame.Navigate(typeof(TrajetEnCours));
                     break;
                 case "iTerminer":
                     tblHeader.Text = "Trajets termine";
@@ -87,5 +124,7 @@ namespace ProjetFinale
             mainFrame.Navigate(typeof(Connexion));
         }
 
+        
+  
     }
 }

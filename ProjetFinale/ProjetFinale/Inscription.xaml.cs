@@ -27,6 +27,8 @@ namespace ProjetFinale
         public Inscription()
         {
             this.InitializeComponent();
+            cbType1.Items.Add("conducteur"); 
+            cbType1.Items.Add("passager");
         }
 
 
@@ -98,7 +100,7 @@ namespace ProjetFinale
                     Nom = Nom1.Text,
                     Adresse = Adresse1.Text,
                     NoTel = Num1.Text,
-                    TypeCompte = Type1.Text
+                    TypeCompte = cbType1.SelectedItem.ToString()
                 };
 
                 if (GestionBD.getInstance().inscription(us) > 0)
@@ -125,9 +127,9 @@ namespace ProjetFinale
             errVerifMdp1.Visibility = Visibility.Collapsed;
         }
 
-        private void listeCategorie_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        /*private void listeCategorie_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Usage m = (Usage)listeStatut.SelectedItem;
-        }
+        }*/
     }
 }
