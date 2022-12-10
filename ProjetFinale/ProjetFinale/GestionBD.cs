@@ -59,7 +59,7 @@ namespace ProjetFinale
 
             MySqlCommand commande = new MySqlCommand();
             commande.Connection = con;
-            commande.CommandText = "Select typeCompte from usages where email = '" + a + "' and password = '" + b + "'";
+            commande.CommandText = "Select typeCompte,idUsage from usages where email = '" + a + "' and password = '" + b + "'";
 
             con.Open();
             MySqlDataReader r = commande.ExecuteReader();
@@ -67,8 +67,9 @@ namespace ProjetFinale
             {
 
                 Usage us = new Usage()
-                { 
-                    TypeCompte = r.GetString("typeCompte")
+                {
+                    TypeCompte = r.GetString("typeCompte"),
+                    IdUsage = r.GetInt32("idUsage")
                 };
                 liste.Add(us);
             }
@@ -155,5 +156,70 @@ namespace ProjetFinale
 
         }
 
+        public ObservableCollection<Ville> getVille()
+        {
+            ObservableCollection<Ville> liste = new ObservableCollection<Ville>();
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "Select nomVille from ville";
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+            while (r.Read())
+            {
+
+                Ville vi = new Ville()
+                {
+                    NomVille = r.GetString("nomVille")
+                };
+                liste.Add(vi);
+            }
+            r.Close();
+            con.Close();
+
+            return liste;
+        }
+
+        public int ajoutTrajet(Trajet tr)
+        {
+            string immatriculation = tr.Immatriculation;
+            int idUsage = MainWindow.idUsage;
+            string villeDepart = tr.VilleDepart;
+            string villeArrivee = tr.VilleArrivee;
+            string status = "avenir";
+            int i = 0;
+
+            try
+            {
+                MySqlCommand commande = new MySqlCommand("P_ajout_trajet");
+                commande.Connection = con;
+                commande.CommandType = System.Data.CommandType.StoredProcedure;
+
+
+                commande.Parameters.AddWithValue("@newImma", immatriculation);
+                commande.Parameters.AddWithValue("@newIdUsage", idUsage);
+                commande.Parameters.AddWithValue("@newVilleD", villeDepart);
+                commande.Parameters.AddWithValue("@newVilleA", villeArrivee);
+                commande.Parameters.AddWithValue("@newStatus", status);
+
+
+                con.Open();
+                commande.Prepare();
+                i = commande.ExecuteNonQuery();
+                con.Close();
+
+            }
+            catch (MySqlException ex)
+            {
+                if (con.State == System.Data.ConnectionState.Open)
+                    con.Close();
+
+                i = 0;
+            }
+
+            return i;
+        }
+
     }
-}
+    }

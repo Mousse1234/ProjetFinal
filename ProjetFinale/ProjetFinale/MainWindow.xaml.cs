@@ -27,6 +27,7 @@ namespace ProjetFinale
     {
         public static string connex = "invite";
         public static string user = "invite";
+        public static int idUsage = 0;
 
         public MainWindow()
         {
@@ -94,8 +95,8 @@ namespace ProjetFinale
                     //mainFrame.Navigate(typeof(couts));
                     break;
                 case "iTrajets":
-                    tblHeader.Text = "Trajets";
-                    //mainFrame.Navigate(typeof(Trajets));
+                    tblHeader.Text = "Ajout trajet";
+                    mainFrame.Navigate(typeof(AjoutTrajet));
                     break;
                 case "iFutur":
                     tblHeader.Text = "Trajets a venir";

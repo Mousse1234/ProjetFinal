@@ -8,7 +8,7 @@ namespace ProjetFinale
 {
     internal class Usage
     {
-
+        int idUsage;
         string email;
         string password;
         string nom;
@@ -24,10 +24,11 @@ namespace ProjetFinale
         public string Adresse { get => adresse; set => adresse = value; }
         public string NoTel { get => noTel; set => noTel = value; }
         public string TypeCompte { get => typeCompte; set => typeCompte = value; }
+        public int IdUsage { get => idUsage; set => idUsage = value; }
 
         public override string ToString()
         {
-            return email +  password +  nom +  prenom +  adresse +  noTel +  typeCompte ;
+            return idUsage + email +  password +  nom +  prenom +  adresse +  noTel +  typeCompte ;
         }
 
 
