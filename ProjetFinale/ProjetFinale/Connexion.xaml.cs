@@ -67,6 +67,7 @@ namespace ProjetFinale
                     MainWindow.prenomCompte = listeCompte[0].Prenom.ToString();
 
                     GestionBD.getInstance().TblUser.Text = "Bienvenue: " + MainWindow.prenomCompte;
+                    GestionBD.getInstance().InfoCo.Visibility = Visibility.Collapsed;
 
                     //Fix le transfer vers le mainFrame apres la connexion
                     GestionBD.getInstance().MainFrame.Navigate(typeof(TrajetDispo));

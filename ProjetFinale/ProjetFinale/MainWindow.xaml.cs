@@ -9,6 +9,7 @@ using Microsoft.UI.Xaml.Navigation;
 using Microsoft.UI.Xaml.Shapes;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -72,6 +73,7 @@ namespace ProjetFinale
             GestionBD.getInstance().HdrPa.Visibility = Visibility.Collapsed;
 
             GestionBD.getInstance().Reserver.Visibility = Visibility.Collapsed;
+            GestionBD.getInstance().InfoCo = infoCo;
 
 
             mainFrame.Navigate(typeof(TrajetDispo));

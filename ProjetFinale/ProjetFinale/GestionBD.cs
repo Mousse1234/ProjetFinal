@@ -15,6 +15,7 @@ namespace ProjetFinale
         static GestionBD gestionBD = null;
 
         TextBlock tblUser;
+        TextBlock infoCo;
         Frame mainFrame;
         NavigationViewItemHeader hdrAd;
         NavigationViewItemHeader hdrCo;
@@ -41,6 +42,7 @@ namespace ProjetFinale
         public NavigationViewItem Historique { get => historique; set => historique = value; }
         public NavigationViewItem Futur { get => futur; set => futur = value; }
         public NavigationViewItem Reserver { get => reserver; set => reserver = value; }
+        public TextBlock InfoCo { get => infoCo; set => infoCo = value; }
 
         public GestionBD()
         {
