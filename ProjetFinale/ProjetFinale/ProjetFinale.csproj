@@ -18,6 +18,7 @@
     <None Remove="Inscription.xaml" />
     <None Remove="TrajetDispo.xaml" />
     <None Remove="TrajetEnCours.xaml" />
+    <None Remove="TrajetTerminer.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -79,5 +80,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Remove="AjoutTrajet.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="TrajetTerminer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 </Project>

@@ -156,6 +156,38 @@ namespace ProjetFinale
 
         }
 
+        public ObservableCollection<Trajet> getTrajetTerminer()
+        {
+            ObservableCollection<Trajet> liste = new ObservableCollection<Trajet>();
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "Select * from trajets where status = 'terminer'";
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+            while (r.Read())
+            {
+
+                Trajet tr = new Trajet()
+                {
+                    IdTrajet = r.GetInt32("idTrajet"),
+                    Immatriculation = r.GetString("immatriculation"),
+                    IdUsage = r.GetInt32("idUsage"),
+                    VilleDepart = r.GetString("villeDepart"),
+                    VilleArrivee = r.GetString("villeArrivee"),
+                    NbrArret = r.GetInt32("nbrArret"),
+                    Status = r.GetString("status"),
+                };
+                liste.Add(tr);
+            }
+            r.Close();
+            con.Close();
+
+            return liste;
+
+        }
+
         public ObservableCollection<Ville> getVille()
         {
             ObservableCollection<Ville> liste = new ObservableCollection<Ville>();
