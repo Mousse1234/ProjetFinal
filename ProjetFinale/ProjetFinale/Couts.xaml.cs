@@ -27,7 +27,7 @@ namespace ProjetFinale
         {
             this.InitializeComponent();
 
-            prenom.Text = GestionBD.getInstance().getVoiture();
+            prenom.Text = GestionBD.getInstance().getNom().ToString();
         }
 
         
