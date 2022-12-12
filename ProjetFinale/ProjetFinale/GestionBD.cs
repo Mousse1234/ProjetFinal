@@ -346,5 +346,24 @@ namespace ProjetFinale
             return liste;
         }
 
+        public int addVille(Ville v)
+        {
+            int retour = 0;
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "insert into ville values (@ville)";
+
+            commande.Parameters.AddWithValue("@ville", v.NomVille);
+
+            con.Open();
+            commande.Prepare();
+            retour = commande.ExecuteNonQuery();
+
+            con.Close();
+
+            return retour;
+        }
+
     }
 }

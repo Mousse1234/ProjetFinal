@@ -124,6 +124,10 @@ namespace ProjetFinale
                     tblHeader.Text = "Reserver un trajet";
                     //mainFrame.Navigate(typeof(Historique));
                     break;
+                case "iAjoutVille":
+                    tblHeader.Text = "Ajouter une ville";
+                    mainFrame.Navigate(typeof(AjoutVille));
+                    break;
             }
         }
 

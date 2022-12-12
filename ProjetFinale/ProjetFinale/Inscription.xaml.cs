@@ -31,11 +31,6 @@ namespace ProjetFinale
             cbType1.Items.Add("passager");
         }
 
-
-     
-
-       
-
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             reset();
