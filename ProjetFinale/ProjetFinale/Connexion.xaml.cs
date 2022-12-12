@@ -71,7 +71,7 @@ namespace ProjetFinale
 
                     //Fix le transfer vers le mainFrame apres la connexion
                     GestionBD.getInstance().MainFrame.Navigate(typeof(TrajetDispo));
-                    GestionBD.getInstance().TblH.Text = "Trajets disponnibles";
+                    GestionBD.getInstance().TblH.Text = "Trajets disponibles";
 
                     if (MainWindow.connex == "admin")
                     {
