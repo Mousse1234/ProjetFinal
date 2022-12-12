@@ -148,6 +148,8 @@ namespace ProjetFinale
             mainFrame.Navigate(typeof(TrajetDispo));
             tblHeader.Text = "Trajets disponibles";
 
+            GestionBD.getInstance().TblUser.Text = "Bienvenue: " + prenomCompte;
+
             connexion.Visibility = Visibility.Visible;
             inscription.Visibility = Visibility.Visible;
             deconnexion.Visibility = Visibility.Collapsed;
