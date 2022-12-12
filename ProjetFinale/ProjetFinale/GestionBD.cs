@@ -288,7 +288,57 @@ namespace ProjetFinale
 
         }
 
+        public ObservableCollection<Voiture> getVoiture()
+        {
+            ObservableCollection<Voiture> liste = new ObservableCollection<Voiture>();
 
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "Select salaireBrut, tauxRetenu from voitures where idUsager = (Select idUsage from usages where typeCompte = 'conducteur') ";
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+            while (r.Read())
+            {
+
+                Voiture vo = new Voiture()
+                {
+                    SalaireBrut = r.GetDouble("salaireBrut"),
+                    TauxRetenu = r.GetDouble("tauxRetenu")
+                };
+                liste.Add(vo);
+            }
+            r.Close();
+            con.Close();
+
+            return liste;
+        }
+
+        public ObservableCollection<Usage> getNom()
+        {
+            ObservableCollection<Usage> liste = new ObservableCollection<Usage>();
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "Select prenom, nom from usages where status = 'conducteur'";
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+            while (r.Read())
+            {
+
+                Usage us  = new Usage()
+                {
+                    Prenom = r.GetString("prenom"),
+                    Nom = r.GetString("nom"),
+                };
+                liste.Add(us);
+            }
+            r.Close();
+            con.Close();
+
+            return liste;
+        }
 
     }
 }

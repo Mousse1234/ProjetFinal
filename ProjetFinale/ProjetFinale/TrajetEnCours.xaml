@@ -20,7 +20,7 @@
 
 
         <TextBlock x:Name="TbTitre" Text="Liste des trajets en cours" FontSize="50" FontFamily="Comic Sans MS" Foreground="white" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <GridView x:Name="lvListeTrajet" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2320" Margin="20 10 0 0" SelectionChanged="lvLivre_SelectionChanged">
+        <GridView x:Name="lvListeTrajet" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2320" Margin="20 10 0 0" >
             <GridView.ItemTemplate>
 
                 <DataTemplate x:DataType="local:Trajet">
