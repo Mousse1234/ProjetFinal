@@ -15,9 +15,9 @@
         </Grid.RowDefinitions>
 
         
-        <CommandBar IsOpen="False" DefaultLabelPosition="Right">
-            <AppBarButton x:Name="inscription" Icon="AddFriend" Label="inscription" Click="inscription_Click"/>
-            <AppBarButton x:Name="connexion" Icon="Account" Label="connexion" Click="connexion_Click"/>
+        <CommandBar Background="Black" IsOpen="False" DefaultLabelPosition="Right">
+            <AppBarButton Background="White" x:Name="inscription" Icon="AddFriend" Label="inscription" Click="inscription_Click"/>
+            <AppBarButton Background="White" x:Name="connexion" Icon="Account" Label="connexion" Click="connexion_Click"/>
         </CommandBar>
     
     
@@ -42,9 +42,10 @@
                 <NavigationViewItemSeparator/>
                 
                 <TextBlock HorizontalAlignment="Center" Foreground="White" x:Name="usagerC" />
+                <TextBlock HorizontalAlignment="Center" Foreground="White" x:Name="infoCo" Text="Pour plus d'option, connectez-vous!"/>
+
                 
-                
-                    <NavigationViewItemHeader x:Name="hdrA" Content="Admin" Foreground="white"/>
+                <NavigationViewItemHeader x:Name="hdrA" Content="Admin" Foreground="white"/>
                     <NavigationViewItem x:Name="iEncours" Content="Trajets en cours" Icon="AllApps" Foreground="white"/>
                     <NavigationViewItem x:Name="iTerminer" Content="Trajets terminer" Icon="Account" Foreground="white"/>
                     <NavigationViewItem x:Name="iCouts" Content="Coûts" Icon="Accept" Foreground="white"/>
@@ -54,9 +55,9 @@
 
                 
                     <NavigationViewItemHeader x:Name="hdrC" Content="Conducteur" Foreground="white"/>
-                    <NavigationViewItem x:Name="iTrajets" Content="Trajets" Icon="Add" Foreground="white"/>
+                    <NavigationViewItem x:Name="iTrajets" Content="Ajout trajets" Icon="Add" Foreground="white"/>
                     <NavigationViewItem x:Name="iHistorique" Content="Historique" Icon="AllApps" Foreground="white"/>
-                    <NavigationViewItem x:Name="iFutur" Content="Futur trajets" Icon="Bookmarks" Foreground="white"/>
+                    <NavigationViewItem x:Name="iFutur" Content="Trajets a venir" Icon="Bookmarks" Foreground="white"/>
                 
 
                 <NavigationViewItemSeparator/>

@@ -15,6 +15,7 @@ namespace ProjetFinale
         static GestionBD gestionBD = null;
 
         TextBlock tblUser;
+        TextBlock infoCo;
         Frame mainFrame;
         NavigationViewItemHeader hdrAd;
         NavigationViewItemHeader hdrCo;
@@ -41,6 +42,7 @@ namespace ProjetFinale
         public NavigationViewItem Historique { get => historique; set => historique = value; }
         public NavigationViewItem Futur { get => futur; set => futur = value; }
         public NavigationViewItem Reserver { get => reserver; set => reserver = value; }
+        public TextBlock InfoCo { get => infoCo; set => infoCo = value; }
 
         public GestionBD()
         {
@@ -59,7 +61,7 @@ namespace ProjetFinale
 
             MySqlCommand commande = new MySqlCommand();
             commande.Connection = con;
-            commande.CommandText = "Select typeCompte,idUsage from usages where email = '" + a + "' and password = '" + b + "'";
+            commande.CommandText = "Select typeCompte,idUsage,prenom from usages where email = '" + a + "' and password = '" + b + "'";
 
             con.Open();
             MySqlDataReader r = commande.ExecuteReader();
@@ -69,7 +71,8 @@ namespace ProjetFinale
                 Usage us = new Usage()
                 {
                     TypeCompte = r.GetString("typeCompte"),
-                    IdUsage = r.GetInt32("idUsage")
+                    IdUsage = r.GetInt32("idUsage"),
+                    Prenom = r.GetString("prenom")
                 };
                 liste.Add(us);
             }
@@ -253,5 +256,39 @@ namespace ProjetFinale
             return i;
         }
 
+        public ObservableCollection<Trajet> getTrajHist(String leStatus)
+        {
+            ObservableCollection<Trajet> liste = new ObservableCollection<Trajet>();
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "Select * from trajets where status = '" + leStatus + "' and idUsage = " + MainWindow.idUsage;
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+            while (r.Read())
+            {
+
+                Trajet tr = new Trajet()
+                {
+                    IdTrajet = r.GetInt32("idTrajet"),
+                    Immatriculation = r.GetString("immatriculation"),
+                    IdUsage = r.GetInt32("idUsage"),
+                    VilleDepart = r.GetString("villeDepart"),
+                    VilleArrivee = r.GetString("villeArrivee"),
+                    NbrArret = r.GetInt32("nbrArret"),
+                    Status = r.GetString("status"),
+                };
+                liste.Add(tr);
+            }
+            r.Close();
+            con.Close();
+
+            return liste;
+
+        }
+
+
+
     }
-    }
+}

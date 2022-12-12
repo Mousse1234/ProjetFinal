@@ -16,6 +16,8 @@
     <None Remove="AjoutTrajet.xaml" />
     <None Remove="Connexion.xaml" />
     <None Remove="Inscription.xaml" />
+    <None Remove="MonHistorique.xaml" />
+    <None Remove="TrajetAvenir.xaml" />
     <None Remove="TrajetDispo.xaml" />
     <None Remove="TrajetEnCours.xaml" />
     <None Remove="TrajetTerminer.xaml" />
@@ -82,7 +84,12 @@
     <Resource Remove="AjoutTrajet.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <Page Update="TrajetTerminer.xaml">
+    <Page Update="TrajetAvenir.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="MonHistorique.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

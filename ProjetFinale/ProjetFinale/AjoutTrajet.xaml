@@ -11,17 +11,17 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel Background="Gray">
+    <StackPanel Padding="10 0 0 0" Background="Gray">
         <TextBlock Padding="0 10 0 0" Text="Entrez l'immatriculation du vehicule"/>
-        <TextBox x:Name="tbxImm" />
+        <TextBox HorizontalAlignment="Left" Width="250" x:Name="tbxImm" />
 
         <TextBlock Text="Selectionner la ville de depart"/>
-        <ComboBox x:Name="cbxDep" />
+        <ComboBox SelectedIndex="0" x:Name="cbxDep" />
 
         <TextBlock Text="Selectionner la ville d'arrivee"/>
-        <ComboBox x:Name="cbxArr" />
+        <ComboBox SelectedIndex="0" x:Name="cbxArr" />
 
-        <Button x:Name="ajoutT" Click="ajoutT_Click" />
+        <Button x:Name="ajoutT" Click="ajoutT_Click" Content="Ajouter" />
         <TextBlock x:Name="trajetValide" Text="Le trajet a bien ete ajoute" Foreground="Green" Visibility="Collapsed"/>
         <TextBlock x:Name="errTrajet" Text="Erreur lors de l'ajout du trajet" Foreground="Red" Visibility="Collapsed"/>
 
