@@ -60,6 +60,11 @@ namespace ProjetFinale
 
             GestionBD.getInstance().Reserver = reserver;
 
+            GestionBD.getInstance().Jconnexion = connexion;
+            GestionBD.getInstance().Jdeconnexion = deconnexion;
+            GestionBD.getInstance().Jinscription = inscription;
+
+
             GestionBD.getInstance().Encours.Visibility = Visibility.Collapsed;
             GestionBD.getInstance().Termine.Visibility = Visibility.Collapsed;
             GestionBD.getInstance().Couts.Visibility = Visibility.Collapsed;
@@ -132,19 +137,18 @@ namespace ProjetFinale
         {
             tblHeader.Text = "Connexion";
             mainFrame.Navigate(typeof(TrajetDispo));
-            connexion.Visibility = Visibility.Collapsed;
-            deconnexion.Visibility = Visibility.Visible;
         }
 
         private void deconnexion_Click(object sender, RoutedEventArgs e)
         {
-            connexion.Visibility = Visibility.Visible;
-            deconnexion.Visibility = Visibility.Collapsed;
             connex = "invite";
             user = "invite";
             idUsage = 0;
             prenomCompte = "invite";
             mainFrame.Navigate(typeof(TrajetDispo));
+            connexion.Visibility = Visibility.Visible;
+            inscription.Visibility = Visibility.Visible;
+            deconnexion.Visibility = Visibility.Collapsed;
         }
     }
 }

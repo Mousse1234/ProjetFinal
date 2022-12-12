@@ -28,6 +28,9 @@ namespace ProjetFinale
         NavigationViewItem futur;
         NavigationViewItem reserver;
         TextBlock tblH;
+        AppBarButton jconnexion;
+        AppBarButton jdeconnexion;
+        AppBarButton jinscription;
 
         public TextBlock TblUser { get => tblUser; set => tblUser = value; }
         public Frame MainFrame { get => mainFrame; set => mainFrame = value; }
@@ -43,6 +46,9 @@ namespace ProjetFinale
         public NavigationViewItem Futur { get => futur; set => futur = value; }
         public NavigationViewItem Reserver { get => reserver; set => reserver = value; }
         public TextBlock InfoCo { get => infoCo; set => infoCo = value; }
+        public AppBarButton Jconnexion { get => jconnexion; set => jconnexion = value; }
+        public AppBarButton Jdeconnexion { get => jdeconnexion; set => jdeconnexion = value; }
+        public AppBarButton Jinscription { get => jinscription; set => jinscription = value; }
 
         public GestionBD()
         {

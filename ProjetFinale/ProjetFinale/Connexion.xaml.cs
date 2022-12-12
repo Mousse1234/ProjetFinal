@@ -73,6 +73,10 @@ namespace ProjetFinale
                     GestionBD.getInstance().MainFrame.Navigate(typeof(TrajetDispo));
                     GestionBD.getInstance().TblH.Text = "Trajets disponibles";
 
+                    GestionBD.getInstance().Jconnexion.Visibility = Visibility.Collapsed; 
+                    GestionBD.getInstance().Jinscription.Visibility = Visibility.Collapsed;
+                    GestionBD.getInstance().Jdeconnexion.Visibility = Visibility.Visible;
+
                     if (MainWindow.connex == "admin")
                     {
                         GestionBD.getInstance().Encours.Visibility = Visibility.Visible;
