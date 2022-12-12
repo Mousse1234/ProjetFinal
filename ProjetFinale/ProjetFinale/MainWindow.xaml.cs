@@ -97,11 +97,11 @@ namespace ProjetFinale
                     break;
                 case "iTerminer":
                     tblHeader.Text = "Trajets termine";
-                    //mainFrame.Navigate(typeof(Terminer));
+                    mainFrame.Navigate(typeof(TrajetTerminer));
                     break;
                 case "iCouts":
                     tblHeader.Text = "Couts";
-                    //mainFrame.Navigate(typeof(couts));
+                    mainFrame.Navigate(typeof(Couts));
                     break;
                 case "iTrajets":
                     tblHeader.Text = "Ajout trajet";

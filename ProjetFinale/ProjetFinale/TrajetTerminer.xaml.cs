@@ -1,4 +1,4 @@
-﻿using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -21,15 +21,18 @@ namespace ProjetFinale
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class TrajetEnCours : Page
+    public sealed partial class TrajetTerminer : Page
     {
-        public TrajetEnCours()
+        public TrajetTerminer()
         {
             this.InitializeComponent();
-            lvListeTrajet.ItemsSource = GestionBD.getInstance().getTrajet();
-
+            lvListeTrajetT.ItemsSource = GestionBD.getInstance().getTrajetTerminer();
         }
 
-  
+        private void lvListeTrajetT_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = lvListeTrajetT.SelectedIndex;
+            //this.Frame.Navigate(typeof(Trajet), index);
+        }
     }
 }

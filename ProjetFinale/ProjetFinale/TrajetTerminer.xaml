@@ -1,5 +1,5 @@
-ï»¿<Page
-    x:Class="ProjetFinale.TrajetEnCours"
+<Page
+    x:Class="ProjetFinale.TrajetTerminer"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ProjetFinale"
@@ -15,20 +15,20 @@
             <RowDefinition Height="1*" />
             <RowDefinition Height="6*"/>
         </Grid.RowDefinitions>
-        
-        
 
 
-        <TextBlock x:Name="TbTitre" Text="Liste des trajets en cours" FontSize="50" FontFamily="Comic Sans MS" Foreground="white" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <GridView x:Name="lvListeTrajet" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2320" Margin="20 10 0 0" >
+
+
+        <TextBlock x:Name="TbTitre" Text="Liste des trajets terminé" FontSize="50" FontFamily="Comic Sans MS" Foreground="white" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <GridView x:Name="lvListeTrajetT" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2320" Margin="20 10 0 0" SelectionChanged="lvListeTrajetT_SelectionChanged">
             <GridView.ItemTemplate>
 
                 <DataTemplate x:DataType="local:Trajet">
 
                     <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal">
-                      
+
                         <StackPanel>
-                            <TextBlock Text="DÃ©part: " Margin="5,5,5,10" FontSize="25" FontFamily="Comic Sans MS" FontWeight="Bold"/>
+                            <TextBlock Text="Départ: " Margin="5,5,5,10" FontSize="25" FontFamily="Comic Sans MS" FontWeight="Bold"/>
                             <TextBlock  Text="{x:Bind VilleDepart}" Margin="5,0,5,10" FontSize="15" FontFamily="Comic Sans MS"/>
 
                             <TextBlock Text="Statut: " Margin="5,5,5,10" FontSize="25" FontFamily="Comic Sans MS" FontWeight="Bold"/>
@@ -36,10 +36,10 @@
                         </StackPanel>
 
                         <StackPanel>
-                            <TextBlock Text="ArrivÃ©: " Margin="5,5,5,10" FontSize="25" FontFamily="Comic Sans MS" FontWeight="Bold"/>
+                            <TextBlock Text="Arrivé: " Margin="5,5,5,10" FontSize="25" FontFamily="Comic Sans MS" FontWeight="Bold"/>
                             <TextBlock Text="{x:Bind VilleArrivee}" Margin="5,0,5,10" FontSize="15" FontFamily="Comic Sans MS"/>
 
-                            <TextBlock Text="ArrÃªt: " Margin="5,5,5,10" FontSize="25" FontFamily="Comic Sans MS" FontWeight="Bold"/>
+                            <TextBlock Text="Arrêt: " Margin="5,5,5,10" FontSize="25" FontFamily="Comic Sans MS" FontWeight="Bold"/>
                             <TextBlock Text="{x:Bind NbrArret}" Margin="5,0,5,10" FontSize="15" FontFamily="Comic Sans MS"/>
                         </StackPanel>
 

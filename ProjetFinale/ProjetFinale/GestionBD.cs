@@ -133,7 +133,39 @@ namespace ProjetFinale
 
             MySqlCommand commande = new MySqlCommand();
             commande.Connection = con;
-            commande.CommandText = "Select * from trajets where status = 'avenir'";
+            commande.CommandText = "Select * from trajets where status = 'encours'";
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+            while (r.Read())
+            {
+
+                Trajet tr = new Trajet()
+                {
+                    IdTrajet = r.GetInt32("idTrajet"),
+                    Immatriculation = r.GetString("immatriculation"),
+                    IdUsage = r.GetInt32("idUsage"),
+                    VilleDepart = r.GetString("villeDepart"),
+                    VilleArrivee = r.GetString("villeArrivee"),
+                    NbrArret = r.GetInt32("nbrArret"),
+                    Status = r.GetString("status"),
+                };
+                liste.Add(tr);
+            }
+            r.Close();
+            con.Close();
+
+            return liste;
+
+        }
+
+        public ObservableCollection<Trajet> getTrajetTerminer()
+        {
+            ObservableCollection<Trajet> liste = new ObservableCollection<Trajet>();
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "Select * from trajets where status = 'terminer'";
 
             con.Open();
             MySqlDataReader r = commande.ExecuteReader();
@@ -256,7 +288,57 @@ namespace ProjetFinale
 
         }
 
+        public ObservableCollection<Voiture> getVoiture()
+        {
+            ObservableCollection<Voiture> liste = new ObservableCollection<Voiture>();
 
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "Select salaireBrut, tauxRetenu from voitures where idUsager = (Select idUsage from usages where typeCompte = 'conducteur') ";
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+            while (r.Read())
+            {
+
+                Voiture vo = new Voiture()
+                {
+                    SalaireBrut = r.GetDouble("salaireBrut"),
+                    TauxRetenu = r.GetDouble("tauxRetenu")
+                };
+                liste.Add(vo);
+            }
+            r.Close();
+            con.Close();
+
+            return liste;
+        }
+
+        public ObservableCollection<Usage> getNom()
+        {
+            ObservableCollection<Usage> liste = new ObservableCollection<Usage>();
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "Select prenom, nom from usages where status = 'conducteur'";
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+            while (r.Read())
+            {
+
+                Usage us  = new Usage()
+                {
+                    Prenom = r.GetString("prenom"),
+                    Nom = r.GetString("nom"),
+                };
+                liste.Add(us);
+            }
+            r.Close();
+            con.Close();
+
+            return liste;
+        }
 
     }
 }

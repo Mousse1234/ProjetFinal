@@ -127,9 +127,9 @@ namespace ProjetFinale
             errVerifMdp1.Visibility = Visibility.Collapsed;
         }
 
-        /*private void listeCategorie_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void listeCategorie_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Usage m = (Usage)listeStatut.SelectedItem;
-        }*/
+        }
     }
 }
