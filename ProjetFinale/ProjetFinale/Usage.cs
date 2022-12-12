@@ -28,7 +28,7 @@ namespace ProjetFinale
 
         public override string ToString()
         {
-            return idUsage + email +  password +  nom +  prenom +  adresse +  noTel +  typeCompte ;
+            return idUsage + email +  password +  nom + ' ' +  prenom +  adresse +  noTel +  typeCompte ;
         }
 
 

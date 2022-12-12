@@ -294,7 +294,7 @@ namespace ProjetFinale
 
             MySqlCommand commande = new MySqlCommand();
             commande.Connection = con;
-            commande.CommandText = "Select salaireBrut, tauxRetenu from voitures where idUsager = (Select idUsage from usages where typeCompte = 'conducteur') ";
+            commande.CommandText = "Select salaireBrut, tauxRetenu from voitures where idUsage = (Select idUsage from usages where typeCompte = 'conducteur') ";
 
             con.Open();
             MySqlDataReader r = commande.ExecuteReader();
@@ -320,7 +320,7 @@ namespace ProjetFinale
 
             MySqlCommand commande = new MySqlCommand();
             commande.Connection = con;
-            commande.CommandText = "Select prenom, nom from usages where status = 'conducteur'";
+            commande.CommandText = "Select prenom, nom from usages where idUsage = (Select idUsage from trajets where status = 'conducteur')";
 
             con.Open();
             MySqlDataReader r = commande.ExecuteReader();
