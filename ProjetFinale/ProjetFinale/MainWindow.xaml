@@ -49,7 +49,7 @@
                     <NavigationViewItem x:Name="iEncours" Content="Trajets en cours" Icon="AllApps" Foreground="white"/>
                     <NavigationViewItem x:Name="iTerminer" Content="Trajets terminer" Icon="Account" Foreground="white"/>
                     <NavigationViewItem x:Name="iCouts" Content="Coûts" Icon="Accept" Foreground="white"/>
-                    
+                <NavigationViewItem x:Name="iAjoutVille" Content="Ajout Ville" Icon="Accept" Foreground="white"/>
 
                 <NavigationViewItemSeparator/>
 
