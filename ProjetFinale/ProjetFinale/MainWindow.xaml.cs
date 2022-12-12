@@ -131,10 +131,20 @@ namespace ProjetFinale
         private void connexion_Click(object sender, RoutedEventArgs e)
         {
             tblHeader.Text = "Connexion";
-            mainFrame.Navigate(typeof(Connexion));
+            mainFrame.Navigate(typeof(TrajetDispo));
+            connexion.Visibility = Visibility.Collapsed;
+            deconnexion.Visibility = Visibility.Visible;
         }
 
-        
-  
+        private void deconnexion_Click(object sender, RoutedEventArgs e)
+        {
+            connexion.Visibility = Visibility.Visible;
+            deconnexion.Visibility = Visibility.Collapsed;
+            connex = "invite";
+            user = "invite";
+            idUsage = 0;
+            prenomCompte = "invite";
+            mainFrame.Navigate(typeof(TrajetDispo));
+        }
     }
 }
