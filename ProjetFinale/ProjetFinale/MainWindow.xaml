@@ -17,7 +17,8 @@
         
         <CommandBar Background="Black" IsOpen="False" DefaultLabelPosition="Right">
             <AppBarButton Background="White" x:Name="inscription" Icon="AddFriend" Label="inscription" Click="inscription_Click" Foreground="black"/>
-            <AppBarButton Background="White" x:Name="connexion" Icon="Account" Label="connexion" Click="connexion_Click" Foreground="black"/>
+            <AppBarButton Background="White" x:Name="connexion" Icon="Account" Label="connexion" Click="connexion_Click" Foreground="black" Visibility="Visible"/>
+            <AppBarButton Background="White" x:Name="deconnexion" Icon="Account" Label="deconnexion" Click="deconnexion_Click" Foreground="black" Visibility="Collapsed"/>
         </CommandBar>
     
     
