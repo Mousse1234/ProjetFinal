@@ -365,5 +365,49 @@ namespace ProjetFinale
             return retour;
         }
 
+        public int ajoutVoiture(Voiture vo)
+        {
+            string immatriculation = vo.Immatriculation;
+            int idUsage = MainWindow.idUsage;
+            string typeVoiture = vo.TypeVoiture;
+            int nbrPassagerMax = vo.NbrPassagerMax;
+            int nbrPassagerDispo = vo.NbrPassagerDispo;
+            double salaireBrut = vo.SalaireBrut;
+            double salaireNet = (salaireBrut - (salaireBrut*0.1));
+            int i = 0;
+
+            try
+            {
+                MySqlCommand commande = new MySqlCommand("p_ajout_voiture");
+                commande.Connection = con;
+                commande.CommandType = System.Data.CommandType.StoredProcedure;
+
+
+                commande.Parameters.AddWithValue("@newImma", immatriculation);
+                commande.Parameters.AddWithValue("@newIdUsage", idUsage);
+                commande.Parameters.AddWithValue("@newTypeVoiture", typeVoiture);
+                commande.Parameters.AddWithValue("@newNbrPassagerMax", nbrPassagerMax);
+                commande.Parameters.AddWithValue("@newNbrPassagerDispo", nbrPassagerDispo);
+                commande.Parameters.AddWithValue("@newSalaireBrut", salaireBrut);
+                commande.Parameters.AddWithValue("@newSalaireNet", salaireNet);
+
+
+                con.Open();
+                commande.Prepare();
+                i = commande.ExecuteNonQuery();
+                con.Close();
+
+            }
+            catch (MySqlException ex)
+            {
+                if (con.State == System.Data.ConnectionState.Open)
+                    con.Close();
+
+                i = 0;
+            }
+
+            return i;
+        }
+
     }
 }
