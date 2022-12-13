@@ -26,7 +26,7 @@ namespace ProjetFinale
         public Couts()
         {
             this.InitializeComponent();
-            lvListeCouts.ItemsSource = GestionBD.getInstance().getCouts();
+            lvListeCouts.ItemsSource = GestionBD.ListeFinal;
         }
 
 

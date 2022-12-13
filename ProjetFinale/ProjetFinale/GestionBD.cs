@@ -34,6 +34,10 @@ namespace ProjetFinale
         AppBarButton jdeconnexion;
         AppBarButton jinscription;
 
+        public static ObservableCollection<Voiture> Liste = new ObservableCollection<Voiture>;
+        public static ObservableCollection<Usage> ListeVoiture = new ObservableCollection<Usage>;
+
+
         public TextBlock TblUser { get => tblUser; set => tblUser = value; }
         public Frame MainFrame { get => mainFrame; set => mainFrame = value; }
         public TextBlock TblH { get => tblH; set => tblH = value; }
@@ -349,7 +353,7 @@ namespace ProjetFinale
             return liste;
         }
 
-        public ObservableCollection<Trajet> getCouts()
+        public void getCouts()
         {
             ObservableCollection<Usage> liste = new ObservableCollection<Usage>();
 
@@ -367,17 +371,30 @@ namespace ProjetFinale
                 {
                     Prenom = r.GetString("prenom"),
                     Nom = r.GetString("nom"),
-                    SalairBrut = r.GetDouble("salaireBrut"),
-                    SalaireNet = r.GetDouble("salaireNet"),
-                    TauxRetenu = r.GetDouble("tauxRetenu"),
                 };
                 liste.Add(us);
             }
+
+            ObservableCollection<Voiture> liste1 = new ObservableCollection<Voiture>();
+
+            MySqlCommand commande1 = new MySqlCommand();
+            commande1.Connection = con;
+            commande1.CommandText = "Select salaireBrut, salaireNet, tauxRetenu from voitures";
+
+
+            MySqlDataReader r1 = commande1.ExecuteReader();
+            while (r1.Read())
+            {
+                Voiture vo = new Voiture()
+                {
+                    SalaireBrut = r.GetDouble("salaireBrut"),
+                    SalaireNet = r.GetDouble("salaireNet"),
+                    TauxRetenu = r.GetDouble("tauxRetenu"),
+                };
+                liste1.Add(vo);
+            }
             r.Close();
             con.Close();
-
-            return liste;
-
         }
 
         public int addVille(Ville v)
