@@ -24,11 +24,15 @@ namespace ProjetFinale
         NavigationViewItem encours;
         NavigationViewItem termine;
         NavigationViewItem couts;
+        NavigationViewItem ajoutVille;
         NavigationViewItem trajets;
         NavigationViewItem historique;
         NavigationViewItem futur;
         NavigationViewItem reserver;
         TextBlock tblH;
+        AppBarButton jconnexion;
+        AppBarButton jdeconnexion;
+        AppBarButton jinscription;
 
         public TextBlock TblUser { get => tblUser; set => tblUser = value; }
         public Frame MainFrame { get => mainFrame; set => mainFrame = value; }
@@ -44,6 +48,10 @@ namespace ProjetFinale
         public NavigationViewItem Futur { get => futur; set => futur = value; }
         public NavigationViewItem Reserver { get => reserver; set => reserver = value; }
         public TextBlock InfoCo { get => infoCo; set => infoCo = value; }
+        public AppBarButton Jconnexion { get => jconnexion; set => jconnexion = value; }
+        public AppBarButton Jdeconnexion { get => jdeconnexion; set => jdeconnexion = value; }
+        public AppBarButton Jinscription { get => jinscription; set => jinscription = value; }
+        public NavigationViewItem AjoutVille { get => ajoutVille; set => ajoutVille = value; }
 
         public GestionBD()
         {
@@ -370,6 +378,69 @@ namespace ProjetFinale
 
             return liste;
 
+        }
+
+        public int addVille(Ville v)
+        {
+            int retour = 0;
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "insert into ville values (@ville)";
+
+            commande.Parameters.AddWithValue("@ville", v.NomVille);
+
+            con.Open();
+            commande.Prepare();
+            retour = commande.ExecuteNonQuery();
+
+            con.Close();
+
+            return retour;
+        }
+
+        public int ajoutVoiture(Voiture vo)
+        {
+            string immatriculation = vo.Immatriculation;
+            int idUsage = MainWindow.idUsage;
+            string typeVoiture = vo.TypeVoiture;
+            int nbrPassagerMax = vo.NbrPassagerMax;
+            int nbrPassagerDispo = vo.NbrPassagerDispo;
+            double salaireBrut = vo.SalaireBrut;
+            double salaireNet = (salaireBrut - (salaireBrut*0.1));
+            int i = 0;
+
+            try
+            {
+                MySqlCommand commande = new MySqlCommand("p_ajout_voiture");
+                commande.Connection = con;
+                commande.CommandType = System.Data.CommandType.StoredProcedure;
+
+
+                commande.Parameters.AddWithValue("@newImma", immatriculation);
+                commande.Parameters.AddWithValue("@newIdUsage", idUsage);
+                commande.Parameters.AddWithValue("@newTypeVoiture", typeVoiture);
+                commande.Parameters.AddWithValue("@newNbrPassagerMax", nbrPassagerMax);
+                commande.Parameters.AddWithValue("@newNbrPassagerDispo", nbrPassagerDispo);
+                commande.Parameters.AddWithValue("@newSalaireBrut", salaireBrut);
+                commande.Parameters.AddWithValue("@newSalaireNet", salaireNet);
+
+
+                con.Open();
+                commande.Prepare();
+                i = commande.ExecuteNonQuery();
+                con.Close();
+
+            }
+            catch (MySqlException ex)
+            {
+                if (con.State == System.Data.ConnectionState.Open)
+                    con.Close();
+
+                i = 0;
+            }
+
+            return i;
         }
 
     }

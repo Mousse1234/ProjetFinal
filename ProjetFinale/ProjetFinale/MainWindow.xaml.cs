@@ -53,6 +53,7 @@ namespace ProjetFinale
             GestionBD.getInstance().Encours = iEncours;
             GestionBD.getInstance().Termine = iTerminer;
             GestionBD.getInstance().Couts = iCouts;
+            GestionBD.getInstance().AjoutVille = iAjoutVille;
 
             GestionBD.getInstance().Trajets = iTrajets;
             GestionBD.getInstance().Historique = iHistorique;
@@ -60,9 +61,15 @@ namespace ProjetFinale
 
             GestionBD.getInstance().Reserver = reserver;
 
+            GestionBD.getInstance().Jconnexion = connexion;
+            GestionBD.getInstance().Jdeconnexion = deconnexion;
+            GestionBD.getInstance().Jinscription = inscription;
+
+
             GestionBD.getInstance().Encours.Visibility = Visibility.Collapsed;
             GestionBD.getInstance().Termine.Visibility = Visibility.Collapsed;
             GestionBD.getInstance().Couts.Visibility = Visibility.Collapsed;
+            GestionBD.getInstance().AjoutVille.Visibility = Visibility.Collapsed;
 
             GestionBD.getInstance().Trajets.Visibility = Visibility.Collapsed;
             GestionBD.getInstance().Historique.Visibility = Visibility.Collapsed;
@@ -119,6 +126,10 @@ namespace ProjetFinale
                     tblHeader.Text = "Reserver un trajet";
                     //mainFrame.Navigate(typeof(Historique));
                     break;
+                case "iAjoutVille":
+                    tblHeader.Text = "Ajouter une ville";
+                    mainFrame.Navigate(typeof(AjoutVille));
+                    break;
             }
         }
 
@@ -134,17 +145,37 @@ namespace ProjetFinale
             mainFrame.Navigate(typeof(Connexion));
             connexion.Visibility = Visibility.Collapsed;
             deconnexion.Visibility = Visibility.Visible;
+            mainFrame.Navigate(typeof(Connexion));
         }
 
         private void deconnexion_Click(object sender, RoutedEventArgs e)
         {
-            connexion.Visibility = Visibility.Visible;
-            deconnexion.Visibility = Visibility.Collapsed;
             connex = "invite";
             user = "invite";
             idUsage = 0;
             prenomCompte = "invite";
             mainFrame.Navigate(typeof(TrajetDispo));
+            tblHeader.Text = "Trajets disponibles";
+
+            GestionBD.getInstance().TblUser.Text = "Bienvenue: " + prenomCompte;
+
+            connexion.Visibility = Visibility.Visible;
+            inscription.Visibility = Visibility.Visible;
+            deconnexion.Visibility = Visibility.Collapsed;
+
+            GestionBD.getInstance().Encours.Visibility = Visibility.Collapsed;
+            GestionBD.getInstance().Termine.Visibility = Visibility.Collapsed;
+            GestionBD.getInstance().Couts.Visibility = Visibility.Collapsed;
+
+            GestionBD.getInstance().Trajets.Visibility = Visibility.Collapsed;
+            GestionBD.getInstance().Historique.Visibility = Visibility.Collapsed;
+            GestionBD.getInstance().Futur.Visibility = Visibility.Collapsed;
+
+            GestionBD.getInstance().HdrAd.Visibility = Visibility.Collapsed;
+            GestionBD.getInstance().HdrCo.Visibility = Visibility.Collapsed;
+            GestionBD.getInstance().HdrPa.Visibility = Visibility.Collapsed;
+
+            GestionBD.getInstance().Reserver.Visibility = Visibility.Collapsed;
         }
     }
 }

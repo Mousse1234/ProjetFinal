@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="ProjetFinale.AjoutVille"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProjetFinale"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel>
+
+            <TextBox x:Name="tbNomVille" Header="Ajouter le nom de la ville que vous souhaitez ajouter: "/>
+
+            <Button x:Name="Click" Content="Valider" Click="Click_Click"/>
+            <TextBlock x:Name="tblok" Text="La ville a bien ete ajoute" Foreground="Green" Visibility="Collapsed"/>
+            <TextBlock x:Name="tblerr" Text="Erreur lors de l'ajout de la ville" Foreground="Red" Visibility="Collapsed"/>
+
+
+        </StackPanel>
+
+    </Grid>
+</Page>

@@ -73,11 +73,16 @@ namespace ProjetFinale
                     GestionBD.getInstance().MainFrame.Navigate(typeof(TrajetDispo));
                     GestionBD.getInstance().TblH.Text = "Trajets disponibles";
 
+                    GestionBD.getInstance().Jconnexion.Visibility = Visibility.Collapsed; 
+                    GestionBD.getInstance().Jinscription.Visibility = Visibility.Collapsed;
+                    GestionBD.getInstance().Jdeconnexion.Visibility = Visibility.Visible;
+
                     if (MainWindow.connex == "admin")
                     {
                         GestionBD.getInstance().Encours.Visibility = Visibility.Visible;
                         GestionBD.getInstance().Termine.Visibility = Visibility.Visible;
                         GestionBD.getInstance().Couts.Visibility = Visibility.Visible;
+                        GestionBD.getInstance().AjoutVille.Visibility = Visibility.Visible;
 
                         GestionBD.getInstance().Trajets.Visibility = Visibility.Collapsed;
                         GestionBD.getInstance().Historique.Visibility = Visibility.Collapsed;
@@ -94,6 +99,7 @@ namespace ProjetFinale
                         GestionBD.getInstance().Encours.Visibility = Visibility.Collapsed;
                         GestionBD.getInstance().Termine.Visibility = Visibility.Collapsed;
                         GestionBD.getInstance().Couts.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().AjoutVille.Visibility = Visibility.Collapsed;
 
                         GestionBD.getInstance().Trajets.Visibility = Visibility.Visible;
                         GestionBD.getInstance().Historique.Visibility = Visibility.Visible;
@@ -111,6 +117,7 @@ namespace ProjetFinale
                         GestionBD.getInstance().Encours.Visibility = Visibility.Collapsed;
                         GestionBD.getInstance().Termine.Visibility = Visibility.Collapsed;
                         GestionBD.getInstance().Couts.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().AjoutVille.Visibility = Visibility.Collapsed;
 
                         GestionBD.getInstance().Trajets.Visibility = Visibility.Collapsed;
                         GestionBD.getInstance().Historique.Visibility = Visibility.Collapsed;
