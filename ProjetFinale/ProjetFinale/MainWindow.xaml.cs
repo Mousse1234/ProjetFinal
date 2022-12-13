@@ -53,6 +53,7 @@ namespace ProjetFinale
             GestionBD.getInstance().Encours = iEncours;
             GestionBD.getInstance().Termine = iTerminer;
             GestionBD.getInstance().Couts = iCouts;
+            GestionBD.getInstance().AjoutVille = iAjoutVille;
 
             GestionBD.getInstance().Trajets = iTrajets;
             GestionBD.getInstance().Historique = iHistorique;
@@ -68,6 +69,7 @@ namespace ProjetFinale
             GestionBD.getInstance().Encours.Visibility = Visibility.Collapsed;
             GestionBD.getInstance().Termine.Visibility = Visibility.Collapsed;
             GestionBD.getInstance().Couts.Visibility = Visibility.Collapsed;
+            GestionBD.getInstance().AjoutVille.Visibility = Visibility.Collapsed;
 
             GestionBD.getInstance().Trajets.Visibility = Visibility.Collapsed;
             GestionBD.getInstance().Historique.Visibility = Visibility.Collapsed;

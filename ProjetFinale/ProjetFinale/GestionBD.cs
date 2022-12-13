@@ -23,6 +23,7 @@ namespace ProjetFinale
         NavigationViewItem encours;
         NavigationViewItem termine;
         NavigationViewItem couts;
+        NavigationViewItem ajoutVille;
         NavigationViewItem trajets;
         NavigationViewItem historique;
         NavigationViewItem futur;
@@ -49,6 +50,7 @@ namespace ProjetFinale
         public AppBarButton Jconnexion { get => jconnexion; set => jconnexion = value; }
         public AppBarButton Jdeconnexion { get => jdeconnexion; set => jdeconnexion = value; }
         public AppBarButton Jinscription { get => jinscription; set => jinscription = value; }
+        public NavigationViewItem AjoutVille { get => ajoutVille; set => ajoutVille = value; }
 
         public GestionBD()
         {

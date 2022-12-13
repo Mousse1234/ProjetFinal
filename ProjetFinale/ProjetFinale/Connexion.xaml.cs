@@ -82,6 +82,7 @@ namespace ProjetFinale
                         GestionBD.getInstance().Encours.Visibility = Visibility.Visible;
                         GestionBD.getInstance().Termine.Visibility = Visibility.Visible;
                         GestionBD.getInstance().Couts.Visibility = Visibility.Visible;
+                        GestionBD.getInstance().AjoutVille.Visibility = Visibility.Visible;
 
                         GestionBD.getInstance().Trajets.Visibility = Visibility.Collapsed;
                         GestionBD.getInstance().Historique.Visibility = Visibility.Collapsed;
@@ -98,6 +99,7 @@ namespace ProjetFinale
                         GestionBD.getInstance().Encours.Visibility = Visibility.Collapsed;
                         GestionBD.getInstance().Termine.Visibility = Visibility.Collapsed;
                         GestionBD.getInstance().Couts.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().AjoutVille.Visibility = Visibility.Collapsed;
 
                         GestionBD.getInstance().Trajets.Visibility = Visibility.Visible;
                         GestionBD.getInstance().Historique.Visibility = Visibility.Visible;
@@ -115,6 +117,7 @@ namespace ProjetFinale
                         GestionBD.getInstance().Encours.Visibility = Visibility.Collapsed;
                         GestionBD.getInstance().Termine.Visibility = Visibility.Collapsed;
                         GestionBD.getInstance().Couts.Visibility = Visibility.Collapsed;
+                        GestionBD.getInstance().AjoutVille.Visibility = Visibility.Collapsed;
 
                         GestionBD.getInstance().Trajets.Visibility = Visibility.Collapsed;
                         GestionBD.getInstance().Historique.Visibility = Visibility.Collapsed;
