@@ -28,5 +28,10 @@ namespace ProjetFinale
         public double SalaireBrut { get => salaireBrut; set => salaireBrut = value; }
         public double TauxRetenu { get => tauxRetenu; set => tauxRetenu = value; }
         public double SalaireNet { get => salaireNet; set => salaireNet = value; }
+
+        public override string ToString()
+        {
+            return immatriculation + idUsager + typeVoiture + idTrajet + nbrPassagerMax + nbrPassagerDispo + salaireBrut + tauxRetenu + salaireNet;
+        }
     }
 }

@@ -10,6 +10,7 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -26,16 +27,31 @@ namespace ProjetFinale
     /// </summary>
     public sealed partial class Reservation : Page
     {
+        public static int idSelection = 0;
+        public static string selection = "";
+        public static int placeDispo = 0;
+        ObservableCollection<Trajet> laListe = new ObservableCollection<Trajet>();
+
+
         public Reservation()
         {
             this.InitializeComponent();
-            lvTrajetD.ItemsSource = GestionBD.getInstance().getTrajet();
+            lvTrajetD.ItemsSource = GestionBD.getInstance().getTrajetAvenir();
+            laListe = GestionBD.getInstance().getTrajetAvenir();
+            GestionBD.getInstance().NValideRes = valideRes;
+            GestionBD.getInstance().NRefusRes = refusRes;
+
 
         }
 
         private void lvTrajetD_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
             
+            idSelection = Int32.Parse(laListe[lvTrajetD.SelectedIndex].IdTrajet.ToString());
+            selection = lvTrajetD.SelectedItem.ToString();
+
+            GestionBD.getInstance().MainFrame.Navigate(typeof(PageValidation));
         }
 
     }
