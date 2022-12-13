@@ -16,39 +16,53 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
-            <RowDefinition Height="6*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1"/>
         </Grid.RowDefinitions>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
 
 
 
-        <TextBlock x:Name="TbTitre" Text="Liste des couts" FontSize="50" FontFamily="Comic Sans MS" Foreground="white" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <GridView x:Name="lvListeCout" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2320" Margin="20 10 0 0">
 
+        <GridView x:Name="lvListeCouts" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2320" Margin="20 10 0 0" >
+            <GridView.ItemTemplate>
+
+                <DataTemplate x:DataType="local:Couts">
 
                     <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal">
 
                         <StackPanel>
-                            <TextBlock Text="Prénom: " Margin="5,5,5,10" FontSize="25" FontFamily="Comic Sans MS" FontWeight="Bold"/>
-                            <TextBlock x:Name="prenom" Margin="5,0,5,10" FontSize="15" FontFamily="Comic Sans MS"/>
+                            <TextBlock Grid.Column="1" Grid.Row="1" Text="Nom: " Margin="5,5,5,10" FontSize="25" FontFamily="Comic Sans MS" FontWeight="Bold"/>
 
-                            <TextBlock Text="Nom: " Margin="5,5,5,10" FontSize="25" FontFamily="Comic Sans MS" FontWeight="Bold"/>
-                            <TextBlock x:Name="nom" Margin="5,0,5,10" FontSize="15" FontFamily="Comic Sans MS"/>
+                            <TextBlock Grid.Column="2" Grid.Row="1" Text="Salaire net: " Margin="5,5,5,10" FontSize="25" FontFamily="Comic Sans MS" FontWeight="Bold"/>
+
+                            <TextBlock Grid.Column="3" Grid.Row="1" Text="Montant retenu: " Margin="5,5,5,10" FontSize="25" FontFamily="Comic Sans MS" FontWeight="Bold"/>
                         </StackPanel>
 
                         <StackPanel>
-                            <TextBlock Text="Salaire net: " Margin="5,5,5,10" FontSize="25" FontFamily="Comic Sans MS" FontWeight="Bold"/>
-                            <TextBlock x:Name="salaire" Margin="5,0,5,10" FontSize="15" FontFamily="Comic Sans MS"/>
+                            <!--<TextBlock Grid.Column="1" Grid.Row="1" Text="{x:Bind Nom}" Margin="5,5,5,10" FontSize="25" FontFamily="Comic Sans MS" FontWeight="Bold"/>-->
 
-                            <TextBlock Text="Montant retenu: " Margin="5,5,5,10" FontSize="25" FontFamily="Comic Sans MS" FontWeight="Bold"/>
-                            <TextBlock x:Name="montantNet" Margin="5,0,5,10" FontSize="15" FontFamily="Comic Sans MS"/>
+                            <!--<TextBlock Grid.Column="2" Grid.Row="1" Text="{x:Bind SalaireNet}" Margin="5,5,5,10" FontSize="25" FontFamily="Comic Sans MS" FontWeight="Bold"/>
+
+                            <TextBlock Grid.Column="2" Grid.Row="1" Text="{x:Bind SalaireBrut}" Margin="5,5,5,10" FontSize="25" FontFamily="Comic Sans MS" FontWeight="Bold"/>
+
+                            <TextBlock Grid.Column="3" Grid.Row="1" Text="{x:Bind TauxRetenu}" Margin="5,5,5,10" FontSize="25" FontFamily="Comic Sans MS" FontWeight="Bold"/>-->
                         </StackPanel>
 
                     </StackPanel>
 
+                </DataTemplate>
 
+            </GridView.ItemTemplate>
 
         </GridView>
 
+        <Frame x:Name="MainFrame" Grid.Row="1"/>
     </Grid>
 </Page>

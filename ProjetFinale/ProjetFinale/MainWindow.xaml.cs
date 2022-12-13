@@ -143,6 +143,9 @@ namespace ProjetFinale
         {
             tblHeader.Text = "Connexion";
             mainFrame.Navigate(typeof(Connexion));
+            connexion.Visibility = Visibility.Collapsed;
+            deconnexion.Visibility = Visibility.Visible;
+            mainFrame.Navigate(typeof(Connexion));
         }
 
         private void deconnexion_Click(object sender, RoutedEventArgs e)

@@ -1,4 +1,5 @@
 ﻿using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,10 @@ namespace ProjetFinale
         AppBarButton jconnexion;
         AppBarButton jdeconnexion;
         AppBarButton jinscription;
+
+        public static ObservableCollection<Voiture> Liste = new ObservableCollection<Voiture>;
+        public static ObservableCollection<Usage> ListeVoiture = new ObservableCollection<Usage>;
+
 
         public TextBlock TblUser { get => tblUser; set => tblUser = value; }
         public Frame MainFrame { get => mainFrame; set => mainFrame = value; }
@@ -302,7 +307,7 @@ namespace ProjetFinale
 
             MySqlCommand commande = new MySqlCommand();
             commande.Connection = con;
-            commande.CommandText = "Select salaireBrut, tauxRetenu from voitures where idUsager = (Select idUsage from usages where typeCompte = 'conducteur') ";
+            commande.CommandText = "Select salaireBrut, tauxRetenu from voitures where idUsage = (Select idUsage from usages where typeCompte = 'conducteur') ";
 
             con.Open();
             MySqlDataReader r = commande.ExecuteReader();
@@ -328,7 +333,7 @@ namespace ProjetFinale
 
             MySqlCommand commande = new MySqlCommand();
             commande.Connection = con;
-            commande.CommandText = "Select prenom, nom from usages where status = 'conducteur'";
+            commande.CommandText = "Select prenom, nom from usages where idUsage = (Select idUsage from trajets where status = 'conducteur')";
 
             con.Open();
             MySqlDataReader r = commande.ExecuteReader();
@@ -346,6 +351,50 @@ namespace ProjetFinale
             con.Close();
 
             return liste;
+        }
+
+        public void getCouts()
+        {
+            ObservableCollection<Usage> liste = new ObservableCollection<Usage>();
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "Select prenom,nom, salaireBrut, salaireNet, tauxRetenu from usages inner join voitures on voitures.idUsage = usages.idUsage";
+
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+            while (r.Read())
+            {
+
+                Usage us = new Usage()
+                {
+                    Prenom = r.GetString("prenom"),
+                    Nom = r.GetString("nom"),
+                };
+                liste.Add(us);
+            }
+
+            ObservableCollection<Voiture> liste1 = new ObservableCollection<Voiture>();
+
+            MySqlCommand commande1 = new MySqlCommand();
+            commande1.Connection = con;
+            commande1.CommandText = "Select salaireBrut, salaireNet, tauxRetenu from voitures";
+
+
+            MySqlDataReader r1 = commande1.ExecuteReader();
+            while (r1.Read())
+            {
+                Voiture vo = new Voiture()
+                {
+                    SalaireBrut = r.GetDouble("salaireBrut"),
+                    SalaireNet = r.GetDouble("salaireNet"),
+                    TauxRetenu = r.GetDouble("tauxRetenu"),
+                };
+                liste1.Add(vo);
+            }
+            r.Close();
+            con.Close();
         }
 
         public int addVille(Ville v)

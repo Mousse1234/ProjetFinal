@@ -26,11 +26,10 @@ namespace ProjetFinale
         public Couts()
         {
             this.InitializeComponent();
-
-            prenom.Text = GestionBD.getInstance().getNom().ToString();
+            lvListeCouts.ItemsSource = GestionBD.ListeFinal;
         }
 
-        
+
 
     }
 }
