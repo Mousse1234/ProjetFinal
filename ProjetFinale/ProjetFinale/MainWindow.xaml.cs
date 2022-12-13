@@ -131,7 +131,7 @@ namespace ProjetFinale
         private void connexion_Click(object sender, RoutedEventArgs e)
         {
             tblHeader.Text = "Connexion";
-            mainFrame.Navigate(typeof(TrajetDispo));
+            mainFrame.Navigate(typeof(Connexion));
             connexion.Visibility = Visibility.Collapsed;
             deconnexion.Visibility = Visibility.Visible;
         }

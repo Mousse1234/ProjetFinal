@@ -1,4 +1,5 @@
 ﻿using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -338,6 +339,37 @@ namespace ProjetFinale
             con.Close();
 
             return liste;
+        }
+
+        public ObservableCollection<Trajet> getCouts()
+        {
+            ObservableCollection<Usage> liste = new ObservableCollection<Usage>();
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "Select prenom,nom, salaireBrut, salaireNet, tauxRetenu from usages inner join voitures on voitures.idUsage = usages.idUsage";
+
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+            while (r.Read())
+            {
+
+                Usage us = new Usage()
+                {
+                    Prenom = r.GetString("prenom"),
+                    Nom = r.GetString("nom"),
+                    SalairBrut = r.GetDouble("salaireBrut"),
+                    SalaireNet = r.GetDouble("salaireNet"),
+                    TauxRetenu = r.GetDouble("tauxRetenu"),
+                };
+                liste.Add(us);
+            }
+            r.Close();
+            con.Close();
+
+            return liste;
+
         }
 
     }
