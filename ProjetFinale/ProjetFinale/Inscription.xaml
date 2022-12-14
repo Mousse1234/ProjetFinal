@@ -79,10 +79,10 @@
                     <TextBlock x:Name="errType1"  Text="Entrez un type de compte (admin,conducteur ou passager)" Foreground="Red"  Visibility="Collapsed" FontSize="15"/>
                 </StackPanel >
 
-                <ComboBox x:Name="listeStatut" Header="Choisissez un statut" FontSize="20" Margin="0 10 0 0" Grid.Row="7" Grid.Column="1" SelectionChanged="listeCategorie_SelectionChanged">
+                <!--<ComboBox x:Name="listeStatut" Header="Choisissez un statut" FontSize="20" Margin="0 10 0 0" Grid.Row="7" Grid.Column="1" SelectionChanged="listeCategorie_SelectionChanged">
                     <x:String>Conducteur</x:String>
                     <x:String>Passager</x:String>
-                </ComboBox>
+                </ComboBox>-->
 
                 <StackPanel Grid.Column="1" Grid.Row="8" Padding="0,0,0,20">
                     <Button x:Name="button1" Content="Inscription" Click="button1_Click" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" FontSize="20"  Margin="0 20 0 0"/>

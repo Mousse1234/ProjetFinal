@@ -10,8 +10,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using System.Security.Cryptography;
+using System.IO;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -29,6 +32,18 @@ namespace ProjetFinale
             this.InitializeComponent();
             cbType1.Items.Add("conducteur"); 
             cbType1.Items.Add("passager");
+        }
+
+        private string genererSHA256(string texte)
+        {
+            var sha256 = SHA256.Create();
+            byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(texte));
+
+            StringBuilder sb = new StringBuilder();
+            foreach (Byte b in bytes)
+                sb.Append(b.ToString("x2"));
+
+            return sb.ToString();
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -87,10 +102,14 @@ namespace ProjetFinale
 
             if (verif == true)
             {
+                string password = "";
+
+                password = genererSHA256(Mdp1.Text);
+
                 Usage us = new Usage()
                 {
                     Email = Email1.Text,
-                    Password = Mdp1.Text,
+                    Password = password,
                     Prenom = Prenom1.Text,
                     Nom = Nom1.Text,
                     Adresse = Adresse1.Text,
@@ -124,7 +143,7 @@ namespace ProjetFinale
 
         private void listeCategorie_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Usage m = (Usage)listeStatut.SelectedItem;
+            //Usage m = (Usage)listeStatut.SelectedItem;
         }
     }
 }
