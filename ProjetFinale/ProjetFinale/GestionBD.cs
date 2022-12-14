@@ -15,6 +15,8 @@ namespace ProjetFinale
         MySqlConnection con;
         static GestionBD gestionBD = null;
 
+        TextBlock nValideRes;
+        TextBlock nRefusRes;
         TextBlock tblUser;
         TextBlock infoCo;
         Frame mainFrame;
@@ -34,9 +36,8 @@ namespace ProjetFinale
         AppBarButton jdeconnexion;
         AppBarButton jinscription;
 
-        public static ObservableCollection<Voiture> ListeVoiture;
-        public static ObservableCollection<Usage> ListeUsage;
-        public static string[] ListeFinal;
+        public static ObservableCollection<Voiture> Liste ;
+        public static ObservableCollection<Usage> ListeVoiture;
 
 
 
@@ -58,6 +59,8 @@ namespace ProjetFinale
         public AppBarButton Jdeconnexion { get => jdeconnexion; set => jdeconnexion = value; }
         public AppBarButton Jinscription { get => jinscription; set => jinscription = value; }
         public NavigationViewItem AjoutVille { get => ajoutVille; set => ajoutVille = value; }
+        public TextBlock NValideRes { get => nValideRes; set => nValideRes = value; }
+        public TextBlock NRefusRes { get => nRefusRes; set => nRefusRes = value; }
 
         public GestionBD()
         {
@@ -230,6 +233,39 @@ namespace ProjetFinale
 
             return liste;
         }
+
+        public ObservableCollection<Trajet> getTrajetAvenir()
+        {
+            ObservableCollection<Trajet> liste = new ObservableCollection<Trajet>();
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "Select * from trajets where status = 'avenir' and idTrajet = (Select idTrajet from voitures where nbrPassagerDispo > 0 and voitures.idTrajet = trajets.idTrajet)";
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+            while (r.Read())
+            {
+
+                Trajet tr = new Trajet()
+                {
+                    IdTrajet = r.GetInt32("idTrajet"),
+                    Immatriculation = r.GetString("immatriculation"),
+                    IdUsage = r.GetInt32("idUsage"),
+                    VilleDepart = r.GetString("villeDepart"),
+                    VilleArrivee = r.GetString("villeArrivee"),
+                    NbrArret = r.GetInt32("nbrArret"),
+                    Status = r.GetString("status"),
+                };
+                liste.Add(tr);
+            }
+            r.Close();
+            con.Close();
+
+            return liste;
+
+        }
+
 
         public int ajoutTrajet(Trajet tr)
         {
@@ -468,6 +504,73 @@ namespace ProjetFinale
 
             return i;
         }
+        public void resPlace(int idTrajet)
+        {
 
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "update voitures set nbrPassagerDispo = (nbrPassagerDispo - 1) WHERE idTrajet = @trajet";
+
+            commande.Parameters.AddWithValue("@trajet", idTrajet);
+
+            con.Open();
+            commande.Prepare();
+            commande.ExecuteNonQuery();
+
+            con.Close();
+            //
+            MySqlCommand commande2 = new MySqlCommand();
+            commande2.Connection = con;
+            commande2.CommandText = "update voitures set salaireBrut = (salaireBrut + 10) WHERE idTrajet = @trajet and typeVoiture = 'vus'";
+
+            commande2.Parameters.AddWithValue("@trajet", idTrajet);
+
+            con.Open();
+            commande2.Prepare();
+            commande2.ExecuteNonQuery();
+
+            con.Close();
+
+            MySqlCommand commande3 = new MySqlCommand();
+            commande3.Connection = con;
+            commande3.CommandText = "update voitures set salaireBrut = (salaireBrut + 15) WHERE idTrajet = @trajet and typeVoiture = 'berline'";
+
+            commande3.Parameters.AddWithValue("@trajet", idTrajet);
+
+            con.Open();
+            commande3.Prepare();
+            commande3.ExecuteNonQuery();
+
+            con.Close();
+
+
+
+        }
+
+        public ObservableCollection<Voiture> getNbrPlaceDispo(int idTrajet)
+        {
+            ObservableCollection<Voiture> liste = new ObservableCollection<Voiture>();
+            
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "Select nbrPassagerDispo from voitures where idUsage = " + idTrajet;
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+            while (r.Read())
+            {
+
+                Voiture vo = new Voiture()
+                {
+                    NbrPassagerDispo = r.GetInt32("nbrPlaceDispo"),
+                };
+                liste.Add(vo);
+            }
+            r.Close();
+            con.Close();
+
+            return liste;
+        }
     }
 }

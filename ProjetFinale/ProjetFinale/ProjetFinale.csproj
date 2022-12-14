@@ -19,6 +19,8 @@
     <None Remove="Couts.xaml" />
     <None Remove="Inscription.xaml" />
     <None Remove="MonHistorique.xaml" />
+    <None Remove="PageValidation.xaml" />
+    <None Remove="Reservation.xaml" />
     <None Remove="TrajetAvenir.xaml" />
     <None Remove="TrajetDispo.xaml" />
     <None Remove="TrajetEnCours.xaml" />
@@ -84,6 +86,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Remove="AjoutTrajet.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="PageValidation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Reservation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="AjoutVille.xaml">
