@@ -11,8 +11,11 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using System.Security.Cryptography;
+using System.IO;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -33,9 +36,24 @@ namespace ProjetFinale
             this.InitializeComponent();
         }
 
+        private string genererSHA256(string texte)
+        {
+            var sha256 = SHA256.Create();
+            byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(texte));
+
+            StringBuilder sb = new StringBuilder();
+            foreach (Byte b in bytes)
+                sb.Append(b.ToString("x2"));
+
+            return sb.ToString();
+        }
+
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             reset();
+
+            string password = "";
+            //password = genererSHA256(Mdp.Password);
 
             if (Email.Text.Trim() == "")
             {
@@ -43,7 +61,7 @@ namespace ProjetFinale
                 errEmail.Visibility = Visibility.Visible;
             }
 
-            if (Mdp.Password.Trim() == "")
+            if (Mdp.Password == "")
             {
                 verif = false;
                 errMdp.Visibility = Visibility.Visible;
@@ -52,7 +70,7 @@ namespace ProjetFinale
             if (verif == true)
             {
                 string a = Email.Text;
-                string b = Mdp.Password;
+                string b = genererSHA256(Mdp.Password); 
 
                 //retourne type de compte si le compte est existant
                 listeCompte = GestionBD.getInstance().listeCompte(a,b);

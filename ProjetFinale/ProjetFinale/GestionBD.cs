@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ProjetFinale
 {
     internal class GestionBD
@@ -36,8 +37,8 @@ namespace ProjetFinale
         AppBarButton jdeconnexion;
         AppBarButton jinscription;
 
-        public static ObservableCollection<Voiture> Liste ;
-        public static ObservableCollection<Usage> ListeVoiture;
+
+
 
 
         public TextBlock TblUser { get => tblUser; set => tblUser = value; }
@@ -72,7 +73,7 @@ namespace ProjetFinale
 
             return gestionBD;
         }
-        public ObservableCollection<Usage> listeCompte(string a,string b)
+        public ObservableCollection<Usage> listeCompte(string a, string b)
         {
             ObservableCollection<Usage> liste = new ObservableCollection<Usage>();
 
@@ -377,7 +378,7 @@ namespace ProjetFinale
             while (r.Read())
             {
 
-                Usage us  = new Usage()
+                Usage us = new Usage()
                 {
                     Prenom = r.GetString("prenom"),
                     Nom = r.GetString("nom"),
@@ -390,9 +391,9 @@ namespace ProjetFinale
             return liste;
         }
 
-        public void getCouts()
+        public ObservableCollection<LesCoutsFinal> getCouts()
         {
-            ObservableCollection<Usage> liste = new ObservableCollection<Usage>();
+            ObservableCollection<LesCoutsFinal> liste = new ObservableCollection<LesCoutsFinal>();
 
             MySqlCommand commande = new MySqlCommand();
             commande.Connection = con;
@@ -404,37 +405,22 @@ namespace ProjetFinale
             while (r.Read())
             {
 
-                Usage us = new Usage()
+                LesCoutsFinal cf = new LesCoutsFinal()
                 {
                     Prenom = r.GetString("prenom"),
                     Nom = r.GetString("nom"),
+                    SalaireBrut = r.GetDecimal("salaireBrut"),
+                    SalaireNet = r.GetDecimal("salaireNet"),
+                    TauxRetenu= r.GetDecimal("tauxRetenu")
                 };
-                liste.Add(us);
-            }
-
-            ObservableCollection<Voiture> liste1 = new ObservableCollection<Voiture>();
-
-            MySqlCommand commande1 = new MySqlCommand();
-            commande1.Connection = con;
-            commande1.CommandText = "Select salaireBrut, salaireNet, tauxRetenu from voitures";
-
-
-            MySqlDataReader r1 = commande1.ExecuteReader();
-            while (r1.Read())
-            {
-                Voiture vo = new Voiture()
-                {
-                    SalaireBrut = r.GetDouble("salaireBrut"),
-                    SalaireNet = r.GetDouble("salaireNet"),
-                    TauxRetenu = r.GetDouble("tauxRetenu"),
-                };
-                liste1.Add(vo);
+                liste.Add(cf);
             }
             r.Close();
             con.Close();
+            return liste;
         }
 
-        public int addVille(Ville v)
+            public int addVille(Ville v)
         {
             int retour = 0;
 
@@ -564,5 +550,8 @@ namespace ProjetFinale
 
             return liste;
         }
+
+    
+
     }
 }
