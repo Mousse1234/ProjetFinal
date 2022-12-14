@@ -549,5 +549,18 @@ namespace ProjetFinale
 
             return liste;
         }
+
+        private string genererSHA256(string texte)
+        {
+            var sha256 = SHA256.Create();
+            byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(texte));
+
+            StringBuilder sb = new StringBuilder();
+            foreach (Byte b in bytes)
+                sb.Append(b.ToString("x2"));
+
+            return sb.ToString();
+        }
+
     }
 }
