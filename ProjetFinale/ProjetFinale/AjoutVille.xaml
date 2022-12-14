@@ -9,9 +9,9 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <StackPanel>
+        <StackPanel Padding="10 20 0 0" Background="Gray">
 
-            <TextBox x:Name="tbNomVille" Header="Ajouter le nom de la ville que vous souhaitez ajouter: "/>
+            <TextBox HorizontalAlignment="Left" Width="340" x:Name="tbNomVille" Header="Ajouter le nom de la ville que vous souhaitez ajouter: "/>
 
             <Button x:Name="Click" Content="Valider" Click="Click_Click"/>
             <TextBlock x:Name="tblok" Text="La ville a bien ete ajoute" Foreground="Green" Visibility="Collapsed"/>
