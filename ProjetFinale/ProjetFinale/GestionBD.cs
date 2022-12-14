@@ -34,8 +34,10 @@ namespace ProjetFinale
         AppBarButton jdeconnexion;
         AppBarButton jinscription;
 
-        public static ObservableCollection<Voiture> Liste = new ObservableCollection<Voiture>;
-        public static ObservableCollection<Usage> ListeVoiture = new ObservableCollection<Usage>;
+        public static ObservableCollection<Voiture> ListeVoiture;
+        public static ObservableCollection<Usage> ListeUsage;
+        public static string[] ListeFinal;
+
 
 
         public TextBlock TblUser { get => tblUser; set => tblUser = value; }
@@ -68,7 +70,7 @@ namespace ProjetFinale
 
             return gestionBD;
         }
-        public ObservableCollection<Usage> listeCompte(string a,string b)
+        public ObservableCollection<Usage> listeCompte(string a, string b)
         {
             ObservableCollection<Usage> liste = new ObservableCollection<Usage>();
 
@@ -340,7 +342,7 @@ namespace ProjetFinale
             while (r.Read())
             {
 
-                Usage us  = new Usage()
+                Usage us = new Usage()
                 {
                     Prenom = r.GetString("prenom"),
                     Nom = r.GetString("nom"),
@@ -353,9 +355,8 @@ namespace ProjetFinale
             return liste;
         }
 
-        public void getCouts()
+        public string[] getCouts()
         {
-            ObservableCollection<Usage> liste = new ObservableCollection<Usage>();
 
             MySqlCommand commande = new MySqlCommand();
             commande.Connection = con;
@@ -372,10 +373,10 @@ namespace ProjetFinale
                     Prenom = r.GetString("prenom"),
                     Nom = r.GetString("nom"),
                 };
-                liste.Add(us);
+                ListeUsage.Add(us);
             }
 
-            ObservableCollection<Voiture> liste1 = new ObservableCollection<Voiture>();
+
 
             MySqlCommand commande1 = new MySqlCommand();
             commande1.Connection = con;
@@ -391,10 +392,18 @@ namespace ProjetFinale
                     SalaireNet = r.GetDouble("salaireNet"),
                     TauxRetenu = r.GetDouble("tauxRetenu"),
                 };
-                liste1.Add(vo);
+                ListeVoiture.Add(vo);
             }
             r.Close();
             con.Close();
+
+            for(int ctr = 0; ctr < ListeVoiture.Count();ctr++)
+            {
+                ListeFinal[ctr] = ListeUsage[ctr].ToString() + ' ' + ListeVoiture[ctr].ToString();
+            }
+
+
+            return ListeFinal;
         }
 
         public int addVille(Ville v)
