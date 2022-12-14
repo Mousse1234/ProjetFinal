@@ -52,7 +52,7 @@ namespace ProjetFinale
         {
             reset();
 
-            string password = "";
+            //string password = "";
             //password = genererSHA256(Mdp.Password);
 
             if (Email.Text.Trim() == "")
