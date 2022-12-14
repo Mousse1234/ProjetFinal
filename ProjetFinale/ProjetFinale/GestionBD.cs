@@ -36,8 +36,7 @@ namespace ProjetFinale
         AppBarButton jdeconnexion;
         AppBarButton jinscription;
 
-        public static ObservableCollection<Voiture> Liste ;
-        public static ObservableCollection<Usage> ListeVoiture;
+
 
 
 
@@ -391,8 +390,9 @@ namespace ProjetFinale
             return liste;
         }
 
-        public string[] getCouts()
+        public ObservableCollection<LesCoutsFinal> getCouts()
         {
+            ObservableCollection<LesCoutsFinal> liste = new ObservableCollection<LesCoutsFinal>();
 
             MySqlCommand commande = new MySqlCommand();
             commande.Connection = con;
@@ -404,45 +404,22 @@ namespace ProjetFinale
             while (r.Read())
             {
 
-                Usage us = new Usage()
+                LesCoutsFinal cf = new LesCoutsFinal()
                 {
                     Prenom = r.GetString("prenom"),
                     Nom = r.GetString("nom"),
+                    SalaireBrut = r.GetDecimal("salaireBrut"),
+                    SalaireNet = r.GetDecimal("salaireNet"),
+                    TauxRetenu= r.GetDecimal("tauxRetenu")
                 };
-                ListeUsage.Add(us);
-            }
-
-
-
-            MySqlCommand commande1 = new MySqlCommand();
-            commande1.Connection = con;
-            commande1.CommandText = "Select salaireBrut, salaireNet, tauxRetenu from voitures";
-
-
-            MySqlDataReader r1 = commande1.ExecuteReader();
-            while (r1.Read())
-            {
-                Voiture vo = new Voiture()
-                {
-                    SalaireBrut = r.GetDouble("salaireBrut"),
-                    SalaireNet = r.GetDouble("salaireNet"),
-                    TauxRetenu = r.GetDouble("tauxRetenu"),
-                };
-                ListeVoiture.Add(vo);
+                liste.Add(cf);
             }
             r.Close();
             con.Close();
-
-            for(int ctr = 0; ctr < ListeVoiture.Count();ctr++)
-            {
-                ListeFinal[ctr] = ListeUsage[ctr].ToString() + ' ' + ListeVoiture[ctr].ToString();
-            }
-
-
-            return ListeFinal;
+            return liste;
         }
 
-        public int addVille(Ville v)
+            public int addVille(Ville v)
         {
             int retour = 0;
 
